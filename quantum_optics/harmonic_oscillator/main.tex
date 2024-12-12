@@ -1,0 +1,228 @@
+\documentclass{report}
+\input{../../head.tex}
+\begin{document}
+  本節では，1次元調和振動子モデルでハミルトニアンが書けるときの波動函数の表示を求める．
+  波動函数とは，Schr\"odinger方程式，
+  \begin{align}
+    \hat{H}\ket{\psi} = E\ket{\psi}\label{schrodinger-equation}
+  \end{align}
+  を満たす$\ket{\psi}$について，
+  \begin{align}
+    \psi(x) \coloneqq \braket{x}{\psi}
+  \end{align}
+  となるように（一般化）座標$x$へ射影したものである．
+  \refe{schrodinger-equation}に対して$\bra{x}$を左から書ければ，
+  \begin{align}
+    \mel**{x}{\hat{H}}{\psi} = E\psi(x)\label{bra-x-from-left}
+  \end{align}
+  となるのだから，左辺を計算して$\psi(x)$に演算子がかかる形に変形すれば，波動函数を求めることができる．
+  本ノートにおいて，$\hat{\cdot}$を演算子として，その固有値を$\cdot$，固有ベクトル(固有函数)を$\ket{\cdot}$と書く．
+  \begin{align}
+    \hat{x}\ket{x} &= x\ket{x} \\ 
+    \hat{p}\ket{x} &= p\ket{x}
+  \end{align}
+  である．また，$\hat{x}$や$\hat{p}$は物理量であり，Hermite演算子だからその固有ベクトルは，
+  \begin{align}
+    \braket{x'}{x} &= \delta\qty(x' - x) \\ 
+    \braket{p'}{p} &= \delta\qty(p' - p)
+  \end{align}
+  と規格化してあり，
+  \begin{align}
+    \int\dd{x}\ketbra{x}{x} &= \hat{1}
+    \int\dd{p}\ketbra{p}{p} &= \hat{1}
+  \end{align}
+  が成立する．なお，特に断らない限り積分範囲は$-\infty$から$\infty$である．
+  \subsection{ハミルトニアン}
+    古典的な1次元調和振動子のハミルトニアン$H$は，
+    \begin{align}
+      H = \frac{1}{2}m\omega^2x^2 + \frac{1}{2m}p^2
+    \end{align}
+    である．ただし，質量を$m$，固有角周波数を$\omega$，座標を$x$，運動量を$p$とした．
+    $x$と$p$は正準共役な変数の組であるから，$x\to \hat{x}$，$p \to \hat{p}$として，
+    \begin{align}
+      \hat{H} &= \frac{1}{2}m\omega^2\hat{x}^2 + \frac{1}{2m}\hat{p}^2 \label{harmonic-oscillator-hamiltonian}\\ 
+      &= \hbar\omega\qty(\frac{m\omega}{2\hbar}\hat{x}^2 + \frac{1}{2m\hbar\omega}\hat{p}^2) \\ 
+      &= \hbar\omega\qty[\qty(\sqrt{\frac{m\omega}{2\hbar}}\hat{x} - \i\sqrt{\frac{1}{2m\hbar\omega}}\hat{p})\qty(\sqrt{\frac{m\omega}{2\hbar}}\hat{x} + \i\sqrt{\frac{1}{2m\hbar\omega}}\hat{p}) - \i\sqrt{\frac{m\omega}{2\hbar}}\sqrt{\frac{1}{2m\hbar\omega}}\qty[\hat{x}, \hat{p}]] \\ 
+      &= \hbar\omega\qty(\hat{a}^{\dag}\hat{a} + \frac{1}{2})
+    \end{align}
+    となる．ただし，
+    \begin{align}
+      \hat{a}^{\dag} &\coloneqq \qty(\sqrt{\frac{m\omega}{2\hbar}}\hat{x} - \i\sqrt{\frac{1}{2m\hbar\omega}}\hat{p}) \\ 
+      \hat{a} &\coloneqq \qty(\sqrt{\frac{m\omega}{2\hbar}}\hat{x} + \i\sqrt{\frac{1}{2m\hbar\omega}}\hat{p})
+    \end{align}
+    と定義した．
+  \subsection{Hermite多項式}
+    以降の議論で用いるために，特殊函数の1つであるHermite多項式を紹介しておこう．
+    Hermite多項式はStrum-Liouville演算子のうちの1つの演算子の固有函数であり，実数全体で定義された実数函数$H_n(s)$に対して，
+    \begin{align}
+      \qty(\dv[2]{s} - 2s\dv{s} + 2n)H_n(s) = 0
+    \end{align}
+    なる$H_n(s)$である．
+    なお，$H_n(s)$は適当な回数だけ微分可能であるとする．
+    また，$H_n(s)$が張る空間$V$の内積は，$f, g\in V$として，
+    \begin{align}
+      \inner{f}{g} \coloneqq \int_{-\infty}^{\infty}\dd{s}f(s)g(s)\e^{-s^2}
+    \end{align}
+    である\footnote{
+      Strum-Liouville演算子の形，
+      \begin{align*}
+        \frac{1}{\rho(x)}\qty[\dv{x}\qty{p(x)\dv{x}} + q(x)]
+      \end{align*}
+      と，Strum-Liouville演算子の固有函数が張る空間の内積が，
+      \begin{align*}
+        \int_{a}^{b} f^*(x)g(x)\rho(x)\dd{x}
+      \end{align*}
+      と書けることを思い出せば，内積に$\e^{-s^2}$なる重み函数が入ることは自然なことである．
+    }．
+    Hermite多項式は，適切に境界条件が設定された(Hermite性のある)Strum-Liouville演算子の固有函数であり，
+    そのような演算子の固有函数は直交基底となり，完全系を成すことが知られていて，実際，
+    \begin{align}
+      \int_{-\infty}^{\infty}H_m(s)H_n(s)\e^{-s^2}\dd{s} = \sqrt{\pi}2^nn!\delta_n^m
+    \end{align}
+    のように直交する．
+  \subsection{波動函数を用いたSchr\"odinger方程式}
+    以下では，波動函数を用いたchr\"odinger方程式である，
+    \begin{align}
+      \qty(-\frac{\hbar^2}{2m}\dv[2]{x} + \frac{1}{2}m\omega^2x^2)\psi(x) = E\psi(x)
+    \end{align}
+    を得る．
+    \par
+    \refe{bra-x-from-left}に\refe{harmonic-oscillator-hamiltonian}で示した$\hat{H}$の表式を代入して，
+    \begin{align}
+      \frac{1}{2}m\omega^2\mel**{x}{\hat{x}^2}{\psi} + \frac{1}{2m}\mel**{x}{\hat{p}^2}{\psi} &= E\psi(x) \\ 
+      \frac{1}{2}m\omega^2x^2\psi(x) + \frac{1}{2m}\mel**{x}{\hat{p}^2}{\psi} &= E\psi(x) \label{input-to-schrodinger}
+    \end{align}
+    となる．
+    $\mel**{x}{\hat{p}^2}{\psi}$は以下のレシピで計算できる．
+    \begin{enumerate}
+      \item $f(x)\dv{x}\delta(x) = -\dv{x}f(x)\delta(x)$
+      \item $\mel**{x}{\hat{p}}{\psi} = -\i\hbar\dv{x}\psi(x)$
+      \item $\braket{x}{p} = \frac{1}{\sqrt{2\pi p}}\exp\qty(\i\frac{xp}{\hbar})$
+      \item $\mel**{x}{\hat{p}^2}{\psi}$の計算
+    \end{enumerate}
+    $\delta(x)$はデルタ函数であり，積分して初めて意味を持つ函数である．
+    \begin{enumerate}
+      \item $f(x)\dv{x}\delta(x) = -\dv{x}f(x)\delta(x)$
+        左辺を積分して右辺になればよい．ただし，$f(x)$は，
+        \begin{align}
+          \lim_{\abs{x} \to \infty}f(x) = 0
+        \end{align}
+        であるとする．
+        実際に，
+        \begin{align}
+          \int_{-\infty}^{\infty}\dd{x}f(x)\dv{x}\delta(x) &= \qty[f(x)\delta(x)]_{-\infty}{\infty} - \int_{-\infty}^{\infty}\dd{x}\dv{x}f(x)\delta(x) \\ 
+          &= - \int_{-\infty}^{\infty}\dd{x}\dv{x}f(x)\delta(x)
+        \end{align}
+        であるから，
+        \begin{align}
+          f(x)\dv{x}\delta(x) = -\dv{x}f(x)\delta(x)\label{delta-function-diff}
+        \end{align}
+        である．
+      \item $\mel**{x}{\hat{p}}{\psi} = -\i\hbar\dv{x}\psi(x)$
+        $\mel**{x}{\qty[\hat{x}, \hat{p}]}{x'}$を2種類の方法で計算する．
+        まず，愚直に計算すると，
+        \begin{align}
+          \mel**{x}{\qty[\hat{x}, \hat{p}]}{x'} &= \mel**{x}{\hat{x}\hat{p} - \hat{p}\hat{x}}{x'} \\ 
+          &= x\mel**{x}{\hat{p}}{x'} - x'\mel**{x}{\hat{p}}{x'} \\ 
+          &= \qty(x - x')\mel**{x}{\hat{p}}{x'}\label{xxpxprime-1}
+        \end{align}
+        である．一方，$\qty[\hat{x}, \hat{p}] = \i\hbar$を用いれば，
+        \begin{align}
+          \mel**{x}{\qty[\hat{x}, \hat{p}]}{x'} &= \i\hbar\braket{x}{x'} \\ 
+          &= \i\hbar\delta(x - x')\label{xxpxprime-2}
+        \end{align}
+        2つの方法で計算した$\mel**{x}{\qty[\hat{x}, \hat{p}]}{x'}$である\refe{xxpxprime-1}と\refe{xxpxprime-2}を等号で結んで，
+        \refe{delta-function-diff}で示したデルタ函数の微分を用いて表現すれば，
+        \begin{align}
+          \mel**{x}{\hat{p}}{x'} &= \i\hbar\frac{\delta(x - x')}{x - x'} \\ 
+          &= -\i\hbar\dv{\qty(x - x')}\delta(x - x') \\ 
+          &= \i\hbar\dv{x'}\delta(x - x')\label{xpxrime}
+        \end{align}
+        となる．
+        \par
+        さて，$\mel**{x}{\hat{p}}{\psi}$を計算しよう．
+        $\ket{x}$の完全性と，\refe{xpxrime}で示した関係を用いれば，
+        \begin{align}
+          \mel**{x}{\hat{p}}{\psi} &= \mel**{x}{\hat{p}\hat{1}}{\psi} \\ 
+          &= \bra{x}\hat{p}\int\dd{x'}\ketbra{x'}{x'}\ket{\psi} \\ 
+          &= \int\dd{x'}\mel**{x}{\hat{p}}{x'}\braket{x'}{\psi} \\ 
+          &= \i\hbar\int\dd{x'}\qty[\dv{x}\delta(x - x')]\phi(x') \\ 
+          &= \i\hbar\qty{[\delta(x - x')]_{-\infty}^{\infty} - \int\dd{x'}\dv{x'}\phi(x')\delta(x - x')} \\ 
+          &= -\i\hbar\dv{x}\phi(x)\label{psix-diff}
+        \end{align}
+        を得る．
+      \item $\braket{x}{p} = \frac{1}{\sqrt{2\pi p}}\exp\qty(\i\frac{xp}{\hbar})$
+        $\mel**{x}{\hat{p}}{p}$を2種類の方法で計算する．
+        まず，愚直に計算すると，
+        \begin{align}
+          \mel**{x}{\hat{p}}{p} &= p\braket{x}{p} \\ 
+          &= pp(x)\label{xpp-1}
+        \end{align}
+        となる．ただし$p(x)$は$\ket{p}$の$x$への射影である．
+        一方，\refe{psix-diff}で示した関係で$\ket{\psi} \to \ket{p}$を用いると，
+        \begin{align}
+          \mel**{x}{\hat{p}}{\psi} = -\i\hbar\dv{x}p(x)\label{xpp-2}
+        \end{align}
+        となる．\refe{xpp-1}と\reff{xpp-2}より，
+        \begin{align}
+          -\i\hbar\dv{x}p(x) &= pp(x) \\ 
+          \Rightarrow p(x) &= C\exp\qty(\i\frac{xp}{\hbar})
+        \end{align}
+        となる．$C$は規格化定数である．
+        \par
+        さて，$C$を求めるために，$\braket{x}{x'}$を計算すると，
+        \begin{align}
+          \delta(x - x') &= \braket{x}{x'} \\ 
+          &= \bra{x}\int\dd{p}\ketbra{p}{p}\ket{x'} \\ 
+          &= \int\dd{p}p(x)p(x') \\ 
+          &= \abs{C}^2\int\exp\qty(\i\frac{\i\qty(x - x')p}{\hbar})
+        \end{align}
+        となる．ところで，デルタ函数のFouirer変換とその逆変換が，
+        \begin{align}
+          1 &= \int_{-\infty}^{\infty}\dd{t}\delta(t)\e^{-\i\omega t} \\ 
+          \delta(t) &= \frac{1}{2\pi}\int\dd{\omega}1\cdot\e^{\i\omega t}\label{delta-fourier-inv}
+        \end{align}
+        と書けることより，\refe{delta-fourier-inv}において，
+        \begin{align}
+          \omega &\to \frac{p}{\hbar} \\ 
+          t &\to x - x'
+        \end{align}
+        と変換すれば，
+        \begin{align}
+          \delta(x - x') = \frac{1}{2\pi\hbar}\int\dd{p}\exp\qty(\i\frac{x - x'}{\hbar}p)
+        \end{align}
+        となるので，係数を比較して，
+        \begin{align}
+          \abs{C}^2 &= \frac{1}{2\pi\hbar} \\ 
+          \Rightarrow C &= \frac{1}{\sqrt{2\pi\hbar}} 
+        \end{align}
+        となる．よって，
+        \begin{align}
+          \braket{x}{p} = \frac{1}{\sqrt{2\pi\hbar}}\exp\qty(\i\frac{xp}{\hbar})\label{braket-xp}
+        \end{align}
+        となる．
+      \item $\mel**{x}{\hat{p}^2}{\psi}$の計算
+        さて，いよいよ$\mel**{x}{\hat{p}^2}{\psi}$を計算する道具がそろった．
+        \refe{braket-xp}を用いながら計算すると，
+        \begin{align}
+          \mel**{x}{\hat{p}^2}{\psi} &= \mel**{x}{\hat{p}^2\hat{1}}{\psi} \\
+          &= \bra{x}\hat{p}^2\int\dd{p}\ketbra{p}{p}\ket{\psi} \\ 
+          &= \int\dd{p}p^2\braket{x}{p}\braket{p}{\psi} \\ 
+          &= \int\dd{p}p^2\frac{1}{\sqrt{2\pi\hbar}}\exp\qty(\i\frac{xp}{\hbar})\braket{p}{\psi} \\ 
+          &= \int\dd{p}\frac{1}{\sqrt{2\pi\hbar}}\qty{\dv[2]{x}\qty(\frac{\hbar}{\i})^2\braket{x}{p}}\braket{p}{\psi} \\ 
+          &= \qty(\frac{\hbar}{\i})^2\int\dd{p}\qty{\dv[2]{x}\braket{x}{p}}\braket{p}{\psi} \\ 
+          &= \qty(\frac{\hbar}{\i})^2\dv[2]{x}\bra{x}\qty[\int\dd{p}\ketbra{p}{p}]\ket{\psi} \\ 
+          &= \qty(\frac{\hbar}{\i})^2\dv[2]{x}\braket{x}{\psi} \\
+          &= \qty(\frac{\hbar}{\i})^2\dv[2]{x}\psi(x)\label{before-schrodinger-oscillator}
+        \end{align}
+        となる．
+    \end{enumerate}
+    \refe{before-schrodinger-oscillator}を\refe{input-to-schrodinger}に代入すれば，
+    \begin{align}
+      \frac{1}{2}m\omega^2x^2\psi(x) + \frac{1}{2m}\mel**{x}{\hat{p}^2}{\psi} &= E\psi(x)\psi(x) + \frac{1}{2m}\mel**{x}{\hat{p}^2}{\psi} &= E\psi(x) \\ 
+      \Leftrightarrow \frac{1}{2}m\omega^2x^2\psi(x) + \frac{1}{2m}\qty(\frac{\hbar}{\i})^2\dv[2]{x}\psi(x) = E\psi(x) \\ 
+      \Leftrightarrow \qty(-\frac{\hbar}{2m}\dv[2]{x} + \frac{1}{2}m\omega^2x^2)\psi(x) = E\psi(x)
+    \end{align}
+    となる．
+  \subsection{Schrodingerの解法}
+\end{document}
