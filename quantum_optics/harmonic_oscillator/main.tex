@@ -28,7 +28,7 @@
   \end{align}
   と規格化してあり，
   \begin{align}
-    \int\dd{x}\ketbra{x}{x} &= \hat{1}
+    \int\dd{x}\ketbra{x}{x} &= \hat{1} \\ 
     \int\dd{p}\ketbra{p}{p} &= \hat{1}
   \end{align}
   が成立する．なお，特に断らない限り積分範囲は$-\infty$から$\infty$である．
@@ -102,7 +102,7 @@
     \end{enumerate}
     $\delta(x)$はデルタ函数であり，積分して初めて意味を持つ函数である．
     \begin{enumerate}
-      \item $f(x)\dv{x}\delta(x) = -\dv{x}f(x)\delta(x)$
+      \item $f(x)\dv{x}\delta(x) = -\dv{x}f(x)\delta(x)$\par
         左辺を積分して右辺になればよい．ただし，$f(x)$は，
         \begin{align}
           \lim_{\abs{x} \to \infty}f(x) = 0
@@ -117,8 +117,8 @@
         \begin{align}
           f(x)\dv{x}\delta(x) = -\dv{x}f(x)\delta(x)\label{delta-function-diff}
         \end{align}
-        である．
-      \item $\mel**{x}{\hat{p}}{\psi} = -\i\hbar\dv{x}\psi(x)$
+        である．  
+      \item $\mel**{x}{\hat{p}}{\psi} = -\i\hbar\dv{x}\psi(x)$\par
         $\mel**{x}{\qty[\hat{x}, \hat{p}]}{x'}$を2種類の方法で計算する．
         まず，愚直に計算すると，
         \begin{align}
@@ -147,11 +147,11 @@
           &= \bra{x}\hat{p}\int\dd{x'}\ketbra{x'}{x'}\ket{\psi} \\ 
           &= \int\dd{x'}\mel**{x}{\hat{p}}{x'}\braket{x'}{\psi} \\ 
           &= \i\hbar\int\dd{x'}\qty[\dv{x}\delta(x - x')]\phi(x') \\ 
-          &= \i\hbar\qty{[\delta(x - x')]_{-\infty}^{\infty} - \int\dd{x'}\dv{x'}\phi(x')\delta(x - x')} \\ 
+          &= \i\hbar\qty{\qty[\delta\qty(x - x')\psi\qty(x')]_{-\infty}^{\infty} - \int\dd{x'}\dv{x'}\phi(x')\delta(x - x')} \\ 
           &= -\i\hbar\dv{x}\phi(x)\label{psix-diff}
         \end{align}
         を得る．
-      \item $\braket{x}{p} = \frac{1}{\sqrt{2\pi p}}\exp\qty(\i\frac{xp}{\hbar})$
+      \item $\braket{x}{p} = \frac{1}{\sqrt{2\pi p}}\exp\qty(\i\frac{xp}{\hbar})$ \par
         $\mel**{x}{\hat{p}}{p}$を2種類の方法で計算する．
         まず，愚直に計算すると，
         \begin{align}
@@ -162,8 +162,8 @@
         一方，\refe{psix-diff}で示した関係で$\ket{\psi} \to \ket{p}$を用いると，
         \begin{align}
           \mel**{x}{\hat{p}}{\psi} = -\i\hbar\dv{x}p(x)\label{xpp-2}
-        \end{align}
-        となる．\refe{xpp-1}と\reff{xpp-2}より，
+        \end{align} 
+        となる．\refe{xpp-1}と\refe{xpp-2}より，
         \begin{align}
           -\i\hbar\dv{x}p(x) &= pp(x) \\ 
           \Rightarrow p(x) &= C\exp\qty(\i\frac{xp}{\hbar})
@@ -180,7 +180,7 @@
         となる．ところで，デルタ函数のFouirer変換とその逆変換が，
         \begin{align}
           1 &= \int_{-\infty}^{\infty}\dd{t}\delta(t)\e^{-\i\omega t} \\ 
-          \delta(t) &= \frac{1}{2\pi}\int\dd{\omega}1\cdot\e^{\i\omega t}\label{delta-fourier-inv}
+          \delta(t) &= \frac{1}{2\pi}\int_{-\infty}^{\infty}\dd{\omega}1\cdot\e^{\i\omega t}\label{delta-fourier-inv}
         \end{align}
         と書けることより，\refe{delta-fourier-inv}において，
         \begin{align}
@@ -201,7 +201,7 @@
           \braket{x}{p} = \frac{1}{\sqrt{2\pi\hbar}}\exp\qty(\i\frac{xp}{\hbar})\label{braket-xp}
         \end{align}
         となる．
-      \item $\mel**{x}{\hat{p}^2}{\psi}$の計算
+      \item $\mel**{x}{\hat{p}^2}{\psi}$の計算\par
         さて，いよいよ$\mel**{x}{\hat{p}^2}{\psi}$を計算する道具がそろった．
         \refe{braket-xp}を用いながら計算すると，
         \begin{align}
@@ -219,10 +219,11 @@
     \end{enumerate}
     \refe{before-schrodinger-oscillator}を\refe{input-to-schrodinger}に代入すれば，
     \begin{align}
-      \frac{1}{2}m\omega^2x^2\psi(x) + \frac{1}{2m}\mel**{x}{\hat{p}^2}{\psi} &= E\psi(x)\psi(x) + \frac{1}{2m}\mel**{x}{\hat{p}^2}{\psi} &= E\psi(x) \\ 
-      \Leftrightarrow \frac{1}{2}m\omega^2x^2\psi(x) + \frac{1}{2m}\qty(\frac{\hbar}{\i})^2\dv[2]{x}\psi(x) = E\psi(x) \\ 
-      \Leftrightarrow \qty(-\frac{\hbar}{2m}\dv[2]{x} + \frac{1}{2}m\omega^2x^2)\psi(x) = E\psi(x)
+      \frac{1}{2}m\omega^2x^2\psi(x) + \frac{1}{2m}\mel**{x}{\hat{p}^2}{\psi} &= E\psi(x) \\ 
+      \Leftrightarrow \frac{1}{2}m\omega^2x^2\psi(x) + \frac{1}{2m}\qty(\frac{\hbar}{\i})^2\dv[2]{x}\psi(x) &= E\psi(x) \\ 
+      \Leftrightarrow \qty(-\frac{\hbar}{2m}\dv[2]{x} + \frac{1}{2}m\omega^2x^2)\psi(x) &= E\psi(x)\label{schrodinger-eq-wave-func}
     \end{align}
     となる．
   \subsection{Schrodingerの解法}
+    いささか唐突だが，
 \end{document}
