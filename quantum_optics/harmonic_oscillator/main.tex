@@ -225,5 +225,41 @@
     \end{align}
     となる．
   \subsection{Schrodingerの解法}
-    いささか唐突だが，
+    いささか唐突だが，波動函数が，
+    \begin{align}
+      \psi(x) &= f(s)\exp\qty(-\frac{s^2}{2}) \label{psi-fs}\\ 
+      s &\coloneqq \sqrt{m\omega}{\hbar}x\label{s-def}
+    \end{align}
+    と書けたとする．$f(s)$がHermite多項式となることを示す．
+    \par
+    \refe{schrodinger-eq-wave-func}の両辺を$-\frac{\hbar^2}{2m}$で割って，$x$から$s$に変数変換\footnote{
+      この変数変換は$x$の無次元化ともとらえられる．
+      実際に\refe{s-def}の右辺の次元を調べると，
+      \begin{align*}
+        \sqrt{\frac{\r{kg\cdot s^{-1}}}{\r{kg\cdot m^2\cdot s^{-2}\cdot s}}}\r{m} = 1
+      \end{align*}
+      である．
+    }すると，
+    \begin{align}
+      \qty(-\frac{\hbar}{2m}\dv[2]{x} + \frac{1}{2}m\omega^2x^2)\psi(x) &= E\psi(x) \\ 
+      \Leftrightarrow \qty[\dv[2]{x} - \frac{m^2\omega^2}{\hbar^2}x^2 + \frac{2mE}{\hbar}]\psi(x) &= 0 \\ 
+      \Leftrightarrow \qty[\qty(\dv{s}{x})^2\dv[2]{s} - \frac{\hbar}{m\omega}s^2 + \frac{2mE}{\hbar^2}]f(s)\exp\qty(-\frac{s^2}{2}) &= 0 \\ 
+      \Leftrightarrow \qty[\frac{m\omega}{\hbar}\dv[2]{s} - \frac{\hbar}{m\omega}s^2 + \frac{2mE}{\hbar^2}]f(s)\exp\qty(-\frac{s^2}{2}) &= 0 \\ 
+      \Leftrightarrow \qty(\dv[2]{s} - s^2 + \frac{2E}{\hbar\omega})f(s)\exp\qty(-\frac{s^2}{2}) &= 0 \label{before-hermite-polynominal}
+    \end{align}
+    と書ける．第1項について，$\dv[2]{s}f(s)\exp\qty(-\frac{s^2}{2})$を計算しよう．
+    Leibniz則より，
+    \begin{align}
+      \dv[2]{s}f(s)\exp\qty(-\frac{s^2}{2}) &= \dv[2]{f}{s}\exp\qty(-\frac{s^2}{2}) + 2\dv{f}{s}\dv{s}\qty(\exp\qty(-\frac{s^2}{2})) + \dv[2]{s}\qty(\exp\qty(-\frac{s^2}{2})) \\ 
+      &= \dv[2]{f}{s}\exp\qty(-\frac{s^2}{2}) - 2s\dv{f}{s}\exp\qty(-\frac{s^2}{2}) + f(s)\qty(s^2 - 1)e\exp\qty(-\frac{s^2}{2}) \\ 
+      &= \qty(\dv[2]{s} - 2s\dv{s} + \qty(s^2 - 1))f(s)\exp\qty(-\frac{s^2}{2})
+    \end{align}
+    と計算できるから，\refe{before-hermite-polynominal}は，
+    \begin{align}
+      \qty(\dv[2]{s} - s^2 + \frac{2E}{\hbar\omega})f(s)\exp\qty(-\frac{s^2}{2}) &= 0 \\ 
+      \Leftrightarrow \qty(\dv[2]{s} - 2s\dv{s} + \qty(s^2 - 1) - s^2 + \frac{2E}{\hbar\omega})f(s)\exp\qty(-\frac{s^2}{2}) &= 0 \\ 
+      \Rightarrow \qty(\dv[2]{s} - 2s\dv{s} + \frac{2E}{\hbar\omega} - 1)f(s) &= 0
+    \end{align}
+    となる．
+    つまり，$f(s)$はHermite多項式である．
 \end{document}
