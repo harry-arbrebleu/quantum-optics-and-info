@@ -55,9 +55,10 @@
     以降の議論で用いるために，特殊函数の1つであるHermite多項式を紹介しておこう．
     Hermite多項式はStrum-Liouville演算子のうちの1つの演算子の固有函数であり，実数全体で定義された実数函数$H_n(s)$に対して，
     \begin{align}
-      \qty(\dv[2]{s} - 2s\dv{s} + 2n)H_n(s) = 0
+      \qty(\dv[2]{s} - 2s\dv{s} + 2n)H_n(s) = 0\label{hermite-polynominal-def}
     \end{align}
     なる$H_n(s)$である．
+    なお，$n$は非負整数である．
     なお，$H_n(s)$は適当な回数だけ微分可能であるとする．
     また，$H_n(s)$が張る空間$V$の内積は，$f, g\in V$として，
     \begin{align}
@@ -110,7 +111,7 @@
         であるとする．
         実際に，
         \begin{align}
-          \int_{-\infty}^{\infty}\dd{x}f(x)\dv{x}\delta(x) &= \qty[f(x)\delta(x)]_{-\infty}{\infty} - \int_{-\infty}^{\infty}\dd{x}\dv{x}f(x)\delta(x) \\ 
+          \int_{-\infty}^{\infty}\dd{x}f(x)\dv{x}\delta(x) &= \qty[f(x)\delta(x)]_{-\infty}^{\infty} - \int_{-\infty}^{\infty}\dd{x}\dv{x}f(x)\delta(x) \\ 
           &= - \int_{-\infty}^{\infty}\dd{x}\dv{x}f(x)\delta(x)
         \end{align}
         であるから，
@@ -228,7 +229,7 @@
     いささか唐突だが，波動函数が，
     \begin{align}
       \psi(x) &= f(s)\exp\qty(-\frac{s^2}{2}) \label{psi-fs}\\ 
-      s &\coloneqq \sqrt{m\omega}{\hbar}x\label{s-def}
+      s &\coloneqq \sqrt{\frac{m\omega}{\hbar}}x\label{s-def}
     \end{align}
     と書けたとする．$f(s)$がHermite多項式となることを示す．
     \par
@@ -250,7 +251,7 @@
     と書ける．第1項について，$\dv[2]{s}f(s)\exp\qty(-\frac{s^2}{2})$を計算しよう．
     Leibniz則より，
     \begin{align}
-      \dv[2]{s}f(s)\exp\qty(-\frac{s^2}{2}) &= \dv[2]{f}{s}\exp\qty(-\frac{s^2}{2}) + 2\dv{f}{s}\dv{s}\qty(\exp\qty(-\frac{s^2}{2})) + \dv[2]{s}\qty(\exp\qty(-\frac{s^2}{2})) \\ 
+      \dv[2]{s}f(s)\exp\qty(-\frac{s^2}{2}) &= \dv[2]{f}{s}\exp\qty(-\frac{s^2}{2}) + 2\dv{f}{s}\dv{s}\qty(\exp\qty(-\frac{s^2}{2})) + f(s)\dv[2]{s}\qty(\exp\qty(-\frac{s^2}{2})) \\ 
       &= \dv[2]{f}{s}\exp\qty(-\frac{s^2}{2}) - 2s\dv{f}{s}\exp\qty(-\frac{s^2}{2}) + f(s)\qty(s^2 - 1)e\exp\qty(-\frac{s^2}{2}) \\ 
       &= \qty(\dv[2]{s} - 2s\dv{s} + \qty(s^2 - 1))f(s)\exp\qty(-\frac{s^2}{2})
     \end{align}
@@ -261,5 +262,36 @@
       \Rightarrow \qty(\dv[2]{s} - 2s\dv{s} + \frac{2E}{\hbar\omega} - 1)f(s) &= 0
     \end{align}
     となる．
-    つまり，$f(s)$はHermite多項式である．
+    Hermite多項式の形は，
+    \begin{align}
+      \qty(\dv[2]{s} - 2s\dv{s} + 2n)H_n(s) = 0
+    \end{align}
+    であったから，
+    \begin{align}
+      \frac{2E}{\hbar\omega} - 1 &= 2n \\ 
+      f(s) &\to H_n(s)
+    \end{align}
+    とすれば良いことがわかる．
+    $n$は非負整数で，$n = 0$では零点振動に対応する．
+    規格化定数を$A$とすれば，波動函数は，
+    \begin{align}
+      \psi_n(x) = AH_n(s)\exp\qty(-\frac{s^2}{2})
+    \end{align}
+    と書ける．
+    規格化定数は，
+    \begin{align}
+      1 &= \int\dd{x}\abs{\psi(x)}^2 \\ 
+      &= \abs{A}^2\int\dd{x}H_n(s)H_n(s)\e^{-s^2} \\ 
+      &= \abs{A}^2\sqrt{\frac{\hbar}{m\omega}}\int\dd{s}H_n(s)H_n(s)\e^{-s^2} \\ 
+      &= \abs{A}^2\sqrt{\frac{\hbar}{m\omega}}\sqrt{\pi}2^nn! 
+    \end{align}
+    より，
+    \begin{align}
+      A = \sqrt{\frac{1}{2^nn!}\sqrt{\frac{m\omega}{\pi\hbar}}}
+    \end{align}
+    となる．波動函数は，
+    \begin{align}
+      \psi(x) = \sqrt{\frac{1}{2^nn!}\sqrt{\frac{m\omega}{\pi\hbar}}}H_n\qty(\sqrt{\frac{m\omega}{\hbar}}x)\exp\qty(-\frac{m\omega}{2\hbar}x^2)
+    \end{align}
+    となる．
 \end{document}
