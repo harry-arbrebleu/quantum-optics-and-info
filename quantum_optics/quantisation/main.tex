@@ -1,0 +1,18 @@
+\documentclass{report}
+\input{../../head.tex}
+\begin{document}
+  結果のみ示す．
+  その他のことについては，別途\href{https://github.com/YutoMSD/physics_notes/blob/main/qft/main.pdf}{ノート}を参照すること．
+  Schr\"odingr描像では，電場と磁場は，
+  \begin{align}
+    \hat{E}(\bm{r}) &= \i\qty(\frac{1}{2\pi})^{3/2}\int\dd[3]{k}\sum_{\sigma = 1}^{2}\sqrt{\frac{\hbar\omega_{\bm{k}}}{2\epsilon_0}}\bm{e}_{\bm{k}\sigma}\qty(\hat{a}_{\bm{k}\sigma}\e^{\i\bm{k}\cdot\bm{r}} - \hat{a}_{\bm{k}\sigma}^{\dag}\e^{-\i\bm{k}\cdot\bm{r}}) \\ 
+    \hat{B}(\bm{r}) &= \i\qty(\frac{1}{2\pi})^{3/2}\int\dd[3]{k}\sum_{\sigma = 1}^{2}\sqrt{\frac{\hbar}{2\epsilon_0\omega_{\bm{k}}}}\bm{k}\times\bm{e}_{\bm{k}\sigma}\qty(\hat{a}_{\bm{k}\sigma}\e^{\i\bm{k}\cdot\bm{r}} - \hat{a}_{\bm{k}\sigma}^{\dag}\e^{-\i\bm{k}\cdot\bm{r}}) 
+  \end{align}
+  と量子化される．
+  また，Heisenberg描像では，
+  \begin{align}
+    \hat{E}(\bm{r}, t) &= \i\qty(\frac{1}{2\pi})^{3/2}\int\dd[3]{k}\sum_{\sigma = 1}^{2}\sqrt{\frac{\hbar\omega_{\bm{k}}}{2\epsilon_0}}\bm{e}_{\bm{k}\sigma}\qty[\hat{a}_{\bm{k}\sigma}\exp\qty{\i\qty(\bm{k}\cdot\bm{r} - \omega_{\bm{k}}t)} - \hat{a}_{\bm{k}\sigma}^{\dag}\exp\qty{-\i\qty(\bm{k}\cdot\bm{r} - \omega_{\bm{k}}t)}] \\ 
+    \hat{B}(\bm{r}, t) &= \i\qty(\frac{1}{2\pi})^{3/2}\int\dd[3]{k}\sum_{\sigma = 1}^{2}\sqrt{\frac{\hbar}{2\epsilon_0\omega_{\bm{k}}}}\bm{k}\times\bm{e}_{\bm{k}\sigma}\qty[\hat{a}_{\bm{k}\sigma}\exp\qty{\i\qty(\bm{k}\cdot\bm{r} - \omega_{\bm{k}}t)} - \hat{a}_{\bm{k}\sigma}^{\dag}\exp\qty{-\i\qty(\bm{k}\cdot\bm{r} - \omega_{\bm{k}}t)}]
+  \end{align}
+  と書ける．
+\end{document}

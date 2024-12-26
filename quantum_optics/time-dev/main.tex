@@ -1,0 +1,118 @@
+\documentclass{report}
+\input{../../head.tex}
+\begin{document}
+  \subsection{電磁場のハミルトニアン}
+    前節での議論により，系のハミルトニアンは，
+    \begin{align}
+      \hat{H}_{\r{sys}} = \int\dd[3]{k} \sum_{\sigma = 1}^{2}\frac{\hbar\omega_{\bm{k}}}{2}\qty(\hat{a}_{\bm{k\sigma}}^{\dag}\hat{a}_{\bm{k}\sigma} + \hat{a}_{\bm{k}\sigma}\hat{a}_{\bm{k}\sigma}^{\dag})
+    \end{align}
+    と書けるのであった．
+    以下では，簡単のために，1方向成分・シングルモードの波を考える．
+    \begin{align}
+      \hat{H}_{\r{sys}} &= \frac{\hbar\omega}{2}\qty(\hat{a}^{\dag}\hat{a} + \hat{a}\hat{a}^{\dag}) \\ 
+      &= \hbar\omega\qty(\hat{a}^{\dag}\hat{a} + \frac{1}{2})
+    \end{align}
+    と書ける．
+    屈折率が$n$の物質中では\footnote{謎である．屈折率により波動は変化しないはずである．}，
+    \begin{align}
+      \hat{H}_{n, \r{sys}} = \frac{\hbar\omega}{n}\qty(\hat{a}^{\dag}\hat{a} + \frac{1}{2})
+    \end{align}
+    と書ける．
+  \subsection{ビームスプリッタ}
+    2入力2出力のビームスプリッタを考える．
+    $E_1$と$E_2$の電場が入射して，$E'_1$と$E'_2$が出力されるとする．
+    古典的に考えると，
+    \begin{align}
+      \mqty(E'_1 \\ E'_2) = \mqty(\xmat*{B}{2}{2})\mqty(E_1 \\ E_2)
+    \end{align}
+    と書ける．
+    このまま電場演算子を中心に議論を勧めることはいささか冗長である．
+    なぜならば，$\hat{a}_1$と$\hat{a}_1^{\dag}$は複素共役の関係にあるのだから，片方が定まれば自然ともう片方が定まるからだ．
+    よって，
+    \begin{align}
+      \mqty(\hat{a}_1' \\ \hat{a}_2') = \mqty(\xmat*{B}{2}{2})\mqty(\hat{a}_1 \\ \hat{a}_2)
+    \end{align}
+    と書ける．
+    $B$はビームスプリッタ行列という．
+    光子数が保存することから，
+    \begin{align}
+      \hat{a}_1^{\dag}\hat{a}_1 + \hat{a}_2^{\dag}\hat{a}_2 &= \hat{a}_1'^{\dag}\hat{a}_1' + \hat{a}_2'^{\dag}\hat{a}_2' \\
+      &= \mqty(B_{11}\hat{a}_1 + B_{12}\hat{a}_2)^{\dag}\mqty(B_{11}\hat{a}_1 + B_{12}\hat{a}_2) + \mqty(B_{21}\hat{a}_1 + B_{22}\hat{a}_2)^{\dag}\mqty(B_{21}\hat{a}_1 + B_{22}\hat{a}_2) \\ 
+      &= \mqty(B_{11}^*\hat{a}_1^{\dag} + B_{12}^*\hat{a}_2^{\dag})\mqty(B_{11}\hat{a}_1 + B_{12}\hat{a}_2) + \mqty(B_{21}^*\hat{a}_1^{\dag} + B_{22}^*\hat{a}_2^{\dag})\mqty(B_{21}\hat{a}_1 + B_{22}\hat{a}_2) \\ 
+      &= \mqty(\abs{B_{11}}^2 + \abs{B_{21}}^2)\hat{a}_1^{\dag}\hat{a}_1 + \mqty(\abs{B_{12}}^2 + \abs{B_{22}}^2)\hat{a}_2^{\dag}\hat{a}_2 + \mqty(B_{11}^*B_{12} + B_{21}^*B_{22})\hat{a}_1^{\dag}\hat{a}_2 + \qty(B_{12}^*B_{11} + B_{21}^*B_{21})\hat{a}_2^{\dag}\hat{a}_1 \\ 
+      &= \mqty(\abs{B_{11}}^2 + \abs{B_{21}}^2)\hat{a}_1^{\dag}\hat{a}_1 + \mqty(\abs{B_{12}}^2 + \abs{B_{22}}^2)\hat{a}_2^{\dag}\hat{a}_2 + \mqty(B_{11}^*B_{12} + B_{21}^*B_{22})\hat{a}_1^{\dag}\hat{a}_2 + \mqty(B_{11}^*B_{12} + B_{21}^*B_{22})^*\hat{a}_2^{\dag}\hat{a}_1
+    \end{align}
+    となり，
+    \begin{align}
+      \begin{dcases}
+        \abs{B_{11}}^2 + \abs{B_{21}}^2 = \abs{B_{12}}^2 + \abs{B_{22}}^2 = 1 \\ 
+        B_{11}^*B_{12} + B_{21}^*B_{22} = 0\\ 
+      \end{dcases} \\ 
+      \Leftrightarrow 
+      B^{\dag}B = \mqty(B_{11}^* & B_{21}^* \\ B_{12}^* & B_{22}^*)\mqty(B_{11} & B_{12} \\ B_{21} & B_{22}) = \mqty(1 & 0 \\ 0 & 1)
+    \end{align}
+    となればよい．
+    つまり，ビームスプリッタ行列$B$がユニタリ行列であれば良い．
+    また，ユニタリ行列は一般に，
+    \begin{align}
+      U = \e^{\i\Lambda/2}
+      \mqty(
+        \e^{\i\Psi/2} & 0 \\ 
+        0 & \e^{-\i\Psi/2}
+      )
+      \mqty(
+        \cos(\Theta/2) & \sin(\Theta/2) \\ 
+        -\sin(\Theta/2) & \cos(\Theta/2)
+      )\mqty(
+        \e^{\i\Phi/2} & 0 \\ 
+        0 & \e^{-\i\Phi/2}
+      )
+    \end{align}
+    と分解できる．
+    実際，
+    \begin{align}
+      U &= \e^{\i\Lambda/2}
+      \mqty(
+        \e^{\i\Psi/2} & 0 \\ 
+        0 & \e^{-\i\Psi/2}
+      )
+      \mqty(
+        \cos(\Theta/2) & \sin(\Theta/2) \\ 
+        -\sin(\Theta/2) & \cos(\Theta/2)
+      )\mqty(
+        \e^{\i\Phi/2} & 0 \\ 
+        0 & \e^{-\i\Phi/2}
+      ) \\ 
+      &= \e^{\i\Lambda/2}\mqty(
+        \e^{\i\Psi/2}\cos\Theta/2 & \e^{\i\Psi/2}\sin\Theta/2 \\ 
+        -\e^{-\i\Psi/2}\sin\Theta/2 & \e^{-\i\Psi/2}\cos\Theta/2
+      )\mqty(
+        \e^{\i\Phi/2} & 0 \\ 
+        0 & \e^{-\i\Phi/2}
+      ) \\ 
+      &= \e^{\i\Lambda/2}\mqty(
+        \e^{\i(\Psi + \Psi) / 2}\cos\Theta/2 & \e^{\i(\Psi - \Phi) / 2}\sin\Theta/2 \\ 
+        -\e^{-\i(\Psi - \Phi) / 2}\sin\Theta/2 & \e^{-\i(\Psi + \Phi) / 2}\cos\Theta/2
+      )
+    \end{align}
+    であり，$\psi = \Psi + \Phi$，$\phi = \Psi - \Phi$とすると，
+    \begin{align}
+      U = \e^{\i\Lambda/2}\mqty(
+        \e^{\i\psi / 2}\cos\Theta/2 & \e^{\i\phi / 2}\sin\Theta/2 \\ 
+        -\e^{-\i\phi / 2}\sin\Theta/2 & \e^{-\i\psi / 2}\cos\Theta/2
+      )
+    \end{align}
+    と書けて，
+    \begin{align}
+      U^{\dag}U = \e^{-\i\Lambda/2}\mqty(
+        \e^{-\i\psi / 2}\cos\Theta/2 & -\e^{\i\phi / 2}\sin\Theta/2 \\ 
+        \e^{-\i\phi / 2}\sin\Theta/2 & \e^{\i\psi / 2}\cos\Theta/2
+      )
+      \e^{\i\Lambda/2}\mqty(
+        \e^{\i\psi / 2}\cos\Theta/2 & \e^{\i\phi / 2}\sin\Theta/2 \\ 
+        -\e^{-\i\phi / 2}\sin\Theta/2 & \e^{-\i\psi / 2}\cos\Theta/2
+      )
+      = \mqty(1 & 0 \\ 0 & 1)
+    \end{align}
+    となり，ユニタリであることが分かる．
+\end{document}
