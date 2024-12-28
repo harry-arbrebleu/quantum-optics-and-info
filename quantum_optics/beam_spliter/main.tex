@@ -18,7 +18,7 @@
       \hat{H}_{n, \r{sys}} = \frac{\hbar\omega}{n}\qty(\hat{a}^{\dag}\hat{a} + \frac{1}{2})
     \end{align}
     と書ける．
-  \subsection{数学的準備}\label{unitary-transform}
+  \subsection{ユニタリ行列の分解}\label{unitary-transform}
     ユニタリ行列は一般に，
     \begin{align}
       U = \e^{\i\Lambda/2}
@@ -27,8 +27,8 @@
         0 & \e^{-\i\Psi/2}
       )
       \mqty(
-        \cos(\Theta/2) & \sin(\Theta/2) \\ 
-        -\sin(\Theta/2) & \cos(\Theta/2)
+        \cos(\Theta / 2) & \sin(\Theta / 2) \\ 
+        -\sin(\Theta / 2) & \cos(\Theta / 2)
       )\mqty(
         \e^{\i\Phi/2} & 0 \\ 
         0 & \e^{-\i\Phi/2}
@@ -43,33 +43,33 @@
         0 & \e^{-\i\Psi/2}
       )
       \mqty(
-        \cos(\Theta/2) & \sin(\Theta/2) \\ 
-        -\sin(\Theta/2) & \cos(\Theta/2)
+        \cos(\Theta / 2) & \sin(\Theta / 2) \\ 
+        -\sin(\Theta / 2) & \cos(\Theta / 2)
       )\mqty(
         \e^{\i\Phi/2} & 0 \\ 
         0 & \e^{-\i\Phi/2}
       ) \\ 
       &= \e^{\i\Lambda/2}\mqty(
-        \e^{\i\Psi/2}\cos(\Theta/2) & \e^{\i\Psi/2}\sin(\Theta/2) \\ 
-        -\e^{-\i\Psi/2}\sin(\Theta/2) & \e^{-\i\Psi/2}\cos(\Theta/2)
+        \e^{\i\Psi/2}\cos(\Theta / 2) & \e^{\i\Psi/2}\sin(\Theta / 2) \\ 
+        -\e^{-\i\Psi/2}\sin(\Theta / 2) & \e^{-\i\Psi/2}\cos(\Theta / 2)
       )\mqty(
         \e^{\i\Phi/2} & 0 \\ 
         0 & \e^{-\i\Phi/2}
       ) \\ 
       &= \e^{\i\Lambda/2}\mqty(
-        \e^{\i(\Psi + \Psi) / 2}\cos(\Theta/2) & \e^{\i(\Psi - \Phi) / 2}\sin(\Theta/2) \\ 
-        -\e^{-\i(\Psi - \Phi) / 2}\sin(\Theta/2) & \e^{-\i(\Psi + \Phi) / 2}\cos(\Theta/2)
+        \e^{\i(\Psi + \Phi) / 2}\cos(\Theta / 2) & \e^{\i(\Psi - \Phi) / 2}\sin(\Theta / 2) \\ 
+        -\e^{-\i(\Psi - \Phi) / 2}\sin(\Theta / 2) & \e^{-\i(\Psi + \Phi) / 2}\cos(\Theta / 2)
       )\label{unitary-representation}
-    \end{align}
+    \end{align} 
     であり，$\alpha = \Psi + \Phi$，$\beta = \Psi - \Phi$とすると，
     \begin{align}
       U &= \e^{\i\Lambda/2}\mqty(
-        \e^{\i\alpha / 2}\cos(\Theta/2) & \e^{\i\beta / 2}\sin(\Theta/2) \\ 
-        -\e^{-\i\beta / 2}\sin(\Theta/2) & \e^{-\i\alpha / 2}\cos(\Theta/2)
+        \e^{\i\alpha / 2}\cos(\Theta / 2) & \e^{\i\beta / 2}\sin(\Theta / 2) \\ 
+        -\e^{-\i\beta / 2}\sin(\Theta / 2) & \e^{-\i\alpha / 2}\cos(\Theta / 2)
       ) \\ 
       &= \mqty(
-        \e^{\i(\Lambda + \alpha) / 2}\cos(\Theta/2) & \e^{\i(\Lambda + \beta) / 2}\sin(\Theta/2) \\ 
-        -\e^{\i(\Lambda - \beta) / 2}\sin(\Theta/2) & \e^{\i(\Lambda - \alpha) / 2}\cos(\Theta/2)
+        \e^{\i(\Lambda + \alpha) / 2}\cos(\Theta / 2) & \e^{\i(\Lambda + \beta) / 2}\sin(\Theta / 2) \\ 
+        -\e^{\i(\Lambda - \beta) / 2}\sin(\Theta / 2) & \e^{\i(\Lambda - \alpha) / 2}\cos(\Theta / 2)
       ) 
     \end{align}
     と書ける．
@@ -118,8 +118,8 @@
       である．$M^{\dag}M$や$MM^{\dag}$の非対角成分は複素共役になっていることに注意する．
       \refe{r11-r21}から\refe{r21-r22}を満たすような$r_{ij}$の組は，実数$\Theta$を用いて，
       \begin{align}
-        r_{11} = r_{22} = \cos(\Theta/2) \\ 
-        r_{12} = -r_{21} = \sin(\Theta/2)
+        r_{11} = r_{22} = \cos(\Theta / 2) \\ 
+        r_{12} = -r_{21} = \sin(\Theta / 2)
       \end{align}
       なるものである．
       また，これらの$r_{ij}$の値を\refe{angle-1}と\refe{angle-2}に代入すると，
@@ -145,21 +145,21 @@
     実際に\refe{unitary-representation}がユニタリ行列であることを確かめる．
     \begin{align}
       U^{\dag}U &= \e^{-\i\Lambda/2}\mqty(
-        \e^{-\i\alpha / 2}\cos(\Theta/2) & -\e^{\i\beta / 2}\sin(\Theta/2) \\ 
-        \e^{-\i\beta / 2}\sin(\Theta/2) & \e^{\i\alpha / 2}\cos(\Theta/2)
+        \e^{-\i\alpha / 2}\cos(\Theta / 2) & -\e^{\i\beta / 2}\sin(\Theta / 2) \\ 
+        \e^{-\i\beta / 2}\sin(\Theta / 2) & \e^{\i\alpha / 2}\cos(\Theta / 2)
       )
       \e^{\i\Lambda/2}\mqty(
-        \e^{\i\alpha / 2}\cos(\Theta/2) & \e^{\i\beta / 2}\sin(\Theta/2) \\ 
-        -\e^{-\i\beta / 2}\sin(\Theta/2) & \e^{-\i\alpha / 2}\cos(\Theta/2)
+        \e^{\i\alpha / 2}\cos(\Theta / 2) & \e^{\i\beta / 2}\sin(\Theta / 2) \\ 
+        -\e^{-\i\beta / 2}\sin(\Theta / 2) & \e^{-\i\alpha / 2}\cos(\Theta / 2)
       )
       = \mqty(1 & 0 \\ 0 & 1) \\ 
       UU^{\dag} &= \e^{\i\Lambda/2}\mqty(
-        \e^{\i\alpha / 2}\cos(\Theta/2) & \e^{\i\beta / 2}\sin(\Theta/2) \\ 
-        -\e^{-\i\beta / 2}\sin(\Theta/2) & \e^{-\i\alpha / 2}\cos(\Theta/2)
+        \e^{\i\alpha / 2}\cos(\Theta / 2) & \e^{\i\beta / 2}\sin(\Theta / 2) \\ 
+        -\e^{-\i\beta / 2}\sin(\Theta / 2) & \e^{-\i\alpha / 2}\cos(\Theta / 2)
       )
       \e^{-\i\Lambda/2}\mqty(
-        \e^{-\i\alpha / 2}\cos(\Theta/2) & -\e^{\i\beta / 2}\sin(\Theta/2) \\ 
-        \e^{-\i\beta / 2}\sin(\Theta/2) & \e^{\i\alpha / 2}\cos(\Theta/2)
+        \e^{-\i\alpha / 2}\cos(\Theta / 2) & -\e^{\i\beta / 2}\sin(\Theta / 2) \\ 
+        \e^{-\i\beta / 2}\sin(\Theta / 2) & \e^{\i\alpha / 2}\cos(\Theta / 2)
       )
       = \mqty(1 & 0 \\ 0 & 1)
     \end{align}
@@ -169,16 +169,22 @@
     $E_1$と$E_2$の電場が入射して，$E'_1$と$E'_2$が出力されるとする．
     古典的に考えると，
     \begin{align}
-      \mqty(E'_1 \\ E'_2) = \mqty(\xmat*{B}{2}{2})\mqty(E_1 \\ E_2)
+      \mqty(E'_1 \\ E'_2) = \mqty(\xmat*{B}{2}{2})\mqty(E_1 \\ E_2)\label{input-classical}
     \end{align}
     と書ける．
     このまま電場演算子を中心に議論を進めることはいささか冗長である．
     なぜならば，$\hat{a}_1$と$\hat{a}_1^{\dag}$は複素共役の関係にあるのだから，片方が定まれば自然ともう片方が定まるからだ．
-    よって，
+    よって\refe{input-classical}を量子化して，消滅演算子$\hat{a}_1$，$\hat{a}_2$を用いて表せば，
     \begin{align}
       \mqty(\hat{a}_1' \\ \hat{a}_2') = \mqty(\xmat*{B}{2}{2})\mqty(\hat{a}_1 \\ \hat{a}_2)
     \end{align}
     と書ける．
+    2つの消滅演算子の交換関係は，
+    \begin{align}
+      \qty[\hat{a}_i, \hat{a}_j^{\dag}] = \delta_{j}^{i} \\ 
+      \qty[\hat{a}_i, \hat{a}_j] = 0
+    \end{align}
+    である．
     $B$はビームスプリッタ行列という．
     光子数が保存することから，
     \begin{align}
@@ -218,17 +224,218 @@
     とすることができる．
     また，透過率$T$と反射率$R$を，
     \begin{align}
-      \sqrt{T} &\coloneqq \cos(\Theta/2) \\ 
-      \sqrt{R} &\coloneqq -\sin(\Theta/2)
+      \sqrt{T} &\coloneqq \cos(\Theta / 2) \\ 
+      \sqrt{R} &\coloneqq -\sin(\Theta / 2)
     \end{align}
     と定義すれば，ビームスプリッタ行列$B$は，
     \begin{align}
       B &= \mqty(
-        \cos(\Theta/2) & \sin(\Theta/2) \\ 
-        -\sin(\Theta/2) & \cos(\Theta/2)
+        \cos(\Theta / 2) & \sin(\Theta / 2) \\ 
+        -\sin(\Theta / 2) & \cos(\Theta / 2)
       ) \\ 
-      &= \mqty(\sqrt{T} & -\sqrt{R} \\ \sqrt{R} & \sqrt{T})
+      &= \mqty(\sqrt{T} & -\sqrt{R} \\ \sqrt{R} & \sqrt{T})\label{beam-splitter-no-delay}
     \end{align}
     と書ける．
+    \begin{align}
+      T + R = 1
+    \end{align}
+    が成立することに注意する．
+  \subsection{Baker-Campbell-Hausdorffの公式}
+    次小節以降で頻出するBaker-Campbell-Hausdorffの公式を示しておこう．
+    Baker-Campbell-Hausdorffの公式は，
+    \begin{align}
+      \e^{\hat{A}}\hat{B}\e^{-\hat{A}} = B + \qty[\hat{A}, \hat{B}] + \frac{1}{2!}\qty[\hat{A}, \qty[\hat{A}, \hat{B}]] + \cdots
+    \end{align}
+    なる式である．
+    \begin{proof}
+      函数$f(t)$を，
+      \begin{align}
+        f(t) \coloneqq \e^{t\hat{A}}\hat{B}\e^{-t\hat{A}}
+      \end{align}
+      と定義する．
+      $f(t)$を$t = 0$の周りで展開することを考えると，
+      \begin{align}
+        f(t) = f(0) + \eval{\dv{f}{x}}_{t = 0}t + \frac{1}{2!}\eval{\dv[2]{f}{x}}_{t = 0} t^2 + \cdots\label{taylor-bch}
+      \end{align}
+      と書ける．
+      さて，
+      \begin{align}
+        \dv{f}{x} &= \hat{A}\e^{t\hat{A}}B\e^{-t\hat{A}} - \e^{t\hat{A}}\hat{B}A\e^{-t\hat{A}} \\ 
+        &= \e^{t\hat{A}}\hat{A}B\e^{-t\hat{A}} - \e^{t\hat{A}}\hat{B}A\e^{-t\hat{A}} \\ 
+        &= \e^{t\hat{A}}\qty(\hat{A}\hat{B} - \hat{B}\hat{A})\e^{-t\hat{A}} \\ 
+        &= \e^{t\hat{A}}\qty[\hat{A}, \hat{B}]\e^{-t\hat{A}}\label{1st-diff-bch}
+      \end{align}
+      である．
+      よって，
+      \begin{align}
+        \eval{\dv{f}{x}}_{t = 0} = \qty[\hat{A}, \hat{B}]
+      \end{align}
+      である．
+      2階以上の微分では，\refe{1st-diff-bch}において，$\hat{B} \to \qty[\hat{A}, \hat{B}]$とすればよい．
+      よって，\refe{taylor-bch}に\refe{1st-diff-bch}を代入すると，
+      \begin{align}
+        f(t) = B + \qty[\hat{A}, \hat{B}]t + \frac{1}{2!}\qty[\hat{A}, \qty[\hat{A}, \hat{B}]]t^2 + \cdots
+      \end{align}
+      である．
+      $t = 1$とすれば，
+      \begin{align}
+        \e^{\hat{A}}\hat{B}\e^{\hat{A}} = B + \qty[\hat{A}, \hat{B}] + \frac{1}{2!}\qty[\hat{A}, \qty[\hat{A}, \hat{B}]] + \cdots
+      \end{align}
+      となる．
+    \end{proof}
   \subsection{ビームスプリッタハミルトニアン}
+    ビームスプリッタ行列を再び考えよう．
+    今度は入力電場と出力電場の位相差が存在することにして，$\Lambda = 0$のみ課しておく．
+    するとビームスプリッタ行列は，
+    \begin{align}
+      B &= \mqty(
+        \e^{\i(\Psi + \Phi) / 2}\cos(\Theta / 2) & \e^{\i(\Psi - \Phi) / 2}\sin(\Theta / 2) \\ 
+        -\e^{-\i(\Psi - \Phi) / 2}\sin(\Theta / 2) & \e^{-\i(\Psi + \Phi) / 2}\cos(\Theta / 2)
+      )
+    \end{align}
+    と書ける．
+    ビームスプリッタ行列を用いて，
+    \begin{align}
+      \mqty(\hat{a}_1' \\ \hat{a}_2')
+      &= \mqty(
+        \e^{\i(\Psi + \Phi) / 2}\cos(\Theta / 2) & \e^{\i(\Psi - \Phi) / 2}\sin(\Theta / 2) \\ 
+        -\e^{-\i(\Psi - \Phi) / 2}\sin(\Theta / 2) & \e^{-\i(\Psi + \Phi) / 2}\cos(\Theta / 2) \\ 
+      )\mqty(\hat{a}_1 \\ \hat{a}_2) \\ 
+      &= \mqty(
+        \e^{\i(\Psi + \Phi) / 2}\cos(\Theta / 2)\hat{a}_1 + \e^{\i(\Psi - \Phi) / 2}\sin(\Theta / 2)\hat{a}_2 \\ 
+        -\e^{-\i(\Psi - \Phi) / 2}\sin(\Theta / 2)\hat{a}_1 + \e^{-\i(\Psi + \Phi) / 2}\cos(\Theta / 2)\hat{a}_2 \\ 
+      ) \\ 
+      &= \mqty(
+        \e^{\i(\Psi + \Phi) / 2}\sqrt{T}\hat{a}_1 - \e^{\i(\Psi - \Phi) / 2}\sqrt{R}\hat{a}_2 \\ 
+        \e^{-\i(\Psi - \Phi) / 2}\sqrt{R}\hat{a}_1 + \e^{-\i(\Psi + \Phi) / 2}\sqrt{T}\hat{a}_2 \\ 
+      )
+    \end{align}
+    と書ける．
+    出力それぞれでの光の強度は，$\hat{a}_1$と$\hat{a}_2^{\dag}$や$\hat{a}_1^{\dag}$と$\hat{a}_2$が交換することを思い出せば，
+    \begin{align}
+      \hat{a}_1'^{\dag}\hat{a}_1' &= \qty(\e^{\i(\Psi + \Phi) / 2}\sqrt{T}\hat{a}_1 - \e^{\i(\Psi - \Phi) / 2}\sqrt{R}\hat{a}_2)^{\dag}\qty(\e^{\i(\Psi + \Phi) / 2}\sqrt{T}\hat{a}_1 - \e^{\i(\Psi - \Phi) / 2}\sqrt{R}\hat{a}_2) \\ 
+      &= T\hat{a}_1^{\dag}\hat{a}_1 + R \hat{a}_2^{\dag}\hat{a}_2 - \sqrt{T}\sqrt{R}\qty(\e^{\i\Phi}\hat{a}_1\hat{a}_2^{\dag} + \e^{-\i\Phi}\hat{a}_1^{\dag}\hat{a}_2)\label{power-a1} \\ 
+      \hat{a}_2'^{\dag}\hat{a}_2' &= \qty(\e^{-\i(\Psi - \Phi) / 2}\sqrt{R}\hat{a}_1 + \e^{-\i(\Psi + \Phi) / 2}\sqrt{T}\hat{a}_2)^{\dag}\qty(\e^{-\i(\Psi - \Phi) / 2}\sqrt{R}\hat{a}_1 + \e^{-\i(\Psi + \Phi) / 2}\sqrt{T}\hat{a}_2) \\ 
+      &= R\hat{a}_1^{\dag}\hat{a}_1 + T\hat{a}_2^{\dag}\hat{a}_2 + \sqrt{T}\sqrt{R}\qty(\e^{\i\Phi}\hat{a}_1\hat{a}_2^{\dag} + \e^{-\i\Phi}\hat{a}_1^{\dag}\hat{a}_2)\label{power-a2}
+    \end{align}
+    となる．
+    \refe{power-a1}と\refe{power-a2}について，第1項と第2項はそれぞれモード1の入力光子数，モード2の入力光子数に対応する．
+    これらの重ね合わせに依って位相が変化して，そのパラメータは$T$である．
+    相互作用を表す項は第3項であるから，ビームスプリッタによる相互作用ハミルトニアン$\hat{H}_{\r{int}}$を，
+    \begin{align}
+      \hat{H}_{\r{int}} \coloneqq \frac{1}{2}\qty(\e^{\i\Phi}\hat{a}_1\hat{a}_2^{\dag} + \e^{-\i\Phi}\hat{a}_1^{\dag}\hat{a}_2)
+    \end{align}
+    と定義する．
+    \par
+    また，以下の演算子を定義する．
+    \begin{align}
+      \hat{L}_0 &\coloneqq \frac{1}{2}\qty(\hat{a}_1^{\dag}\hat{a}_1 + \hat{a}_2^{\dag}\hat{a}_2) \\ 
+      \hat{L}_1 &\coloneqq \frac{1}{2}\qty(\hat{a}_1^{\dag}\hat{a}_2 + \hat{a}_1\hat{a}_2^{\dag}) \\ 
+      \hat{L}_2 &\coloneqq \frac{1}{2\i}\qty(\hat{a}_1^{\dag}\hat{a}_2 - \hat{a}_1\hat{a}_2^{\dag}) \\ 
+      \hat{L}_3 &\coloneqq \frac{1}{2}\qty(\hat{a}_1^{\dag}\hat{a}_1 - \hat{a}_2^{\dag}\hat{a}_2) 
+    \end{align}
+    $\hat{L}_2$と$\hat{H}_{\r{int}}$の関係を調べよう．
+    唐突だが，
+    \begin{align}
+      \e^{-\i\Theta\hat{L}_2}\mqty(\hat{a}_1 \\ \hat{a}_2)\e^{\i\Theta\hat{L}_2} \label{ml2a1a2ml2}
+    \end{align}
+    考える．
+    \refe{ml2a1a2ml2}の第1成分について，Baker-Campbell-Hausdorffの公式より，
+    \begin{align}
+      \e^{-\i\Theta\hat{L}_2}\hat{a}_1\e^{\i\Theta\hat{L}_2} &= \hat{a}_1 + \qty[-\i\Theta\hat{L}_2, \hat{a}_1] + \frac{1}{2!}\qty[-\i\Theta\hat{L}_2, \qty[-\i\Theta\hat{L}_2, \hat{a}_1]] \notag\\ 
+      &+ \frac{1}{3!}\qty[-\i\Theta\hat{L}_2, \qty[-\i\Theta\hat{L}_2, \qty[-\i\Theta\hat{L}_2, \hat{a}_1]]] + \frac{1}{4!}\qty[-\i\Theta\hat{L}_2, \qty[-\i\Theta\hat{L}_2, \qty[-\i\Theta\hat{L}_2, \qty[-\i\Theta\hat{L}_2, \hat{a}_1]]]] + \cdots \\ 
+      &= \hat{a}_1 + \qty(-\i\Theta)\qty[\hat{L}_2, \hat{a}_1] + \frac{\qty(-\i\Theta)^2}{2!}\qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_1]]\notag \\ 
+      &+ \frac{\qty(-\i\Theta)^3}{3!}\qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_1]]] + \frac{\qty(-\i\Theta)^4}{4!}\qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_1]]]] + \cdots \label{etl2-a1}
+    \end{align}
+    となる．$\hat{L}_2$と$\hat{a}_1$，$\hat{L}_2$と$\hat{a}_2$との交換関係についてそれぞれ，
+    \begin{align}
+      \qty[\hat{L}_2, \hat{a}_1] &= \qty[\frac{1}{2\i}\qty(\hat{a}_1^{\dag}\hat{a}_2 - \hat{a}_1\hat{a}_2^{\dag}), \hat{a}_1] \\ 
+      &= \frac{1}{2\i}\qty(\hat{a}_2\qty[\hat{a}_1^{\dag}, \hat{a}_1] - \hat{a}_2^{\dag}\qty[\hat{a}_1, \hat{a}_1]) \\ 
+      &= -\frac{1}{2\i}\hat{a}_2 \label{commute-l2a1}\\ 
+      \qty[\hat{L}_2, \hat{a}_2] &= \qty[\frac{1}{2\i}\qty(\hat{a}_1^{\dag}\hat{a}_2 - \hat{a}_1\hat{a}_2^{\dag}), \hat{a}_2] \\ 
+      &= \frac{1}{2\i}\qty(\hat{a}_1^{\dag}\qty[\hat{a}_2, \hat{a}_2] - \hat{a}_1\qty[\hat{a}_2^{\dag}, \hat{a}_2]) \\ 
+      &= \frac{1}{2\i}\hat{a}_1 \label{commute-l2a2}
+    \end{align}
+    となる．ただし，$\hat{a}_1$と$\hat{a}_2$が交換することを用いた．
+    よって，
+    \begin{align}
+      \qty[\hat{L}_2, \hat{a}_1] &= -\qty(\frac{1}{2\i})^1\hat{a}_2 \\ 
+      \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_1]] = -\frac{1}{2\i}\qty[\hat{L}_2, \hat{a}_2] &= -\qty(\frac{1}{2\i})^2\hat{a}_1 \\ 
+      \qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_1]]] = -\qty(\frac{1}{2\i})^2\qty[\hat{L}_2, \hat{a}_1] &= \qty(\frac{1}{2\i})^3\hat{a}_2 \\ 
+      \qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_1]]]] = \qty(\frac{1}{2\i})^3\qty[\hat{L}_2, \hat{a}_2] &= \qty(\frac{1}{2\i})^4\hat{a}_1 \\ 
+      \vdots & 
+    \end{align}
+    であるから\refe{etl2-a1}は，
+    \begin{align}
+      \e^{-\i\Theta\hat{L}_2}\hat{a}_1\e^{\i\Theta\hat{L}_2} &= \hat{a}_1 + \qty(-\i\Theta)\qty[\hat{L}_2, \hat{a}_1] + \frac{\qty(-\i\Theta)^2}{2!}\qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_1]]\notag \\ 
+      &+ \frac{\qty(-\i\Theta)^3}{3!}\qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_1]]] + \frac{\qty(-\i\Theta)^4}{4!}\qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_1]]]] + \cdots \\ 
+      &= \hat{a}_1 + \qty(-\i\Theta)\qty(-1)\qty(\frac{1}{2\i})^1\hat{a}_2 + \frac{\qty(-\i\Theta)^2}{2!}\qty(-1)\qty(\frac{1}{2\i})^2\hat{a}_1 + \frac{\qty(-\i\Theta)^3}{3!}\qty(\frac{1}{2\i})^3\hat{a}_2 + \frac{\qty(-\i\Theta)^4}{4!}\qty(\frac{1}{2\i})^4\hat{a}_1 + \cdots \\ 
+      &= \hat{a}_1 + \qty(\frac{\Theta}{2})^1\hat{a}_2 - \frac{1}{2!}\qty(\frac{\Theta}{2})^2\hat{a}_1 - \frac{1}{3!}\qty(\frac{\Theta}{2})^3\hat{a}_2 + \frac{1}{4!}\qty(\frac{\Theta}{2})^4\hat{a}_1 + \cdots \\ 
+      &= \qty[1 - \frac{1}{2!}\qty(\frac{\Theta}{2})^2 + \frac{1}{4!}\qty(\frac{\Theta}{2})^4 - \cdots]\hat{a}_1 + \qty[\qty(\frac{\Theta}{2})^1 - \frac{1}{3!}\qty(\frac{\Theta}{2})^3 + \cdots]\hat{a}_2 \\ 
+      &= \cos(\Theta / 2)\hat{a}_1 + \sin(\Theta / 2)\hat{a}_2
+    \end{align}
+    となる．
+    同様に，\refe{ml2a1a2ml2}の第2成分について，
+    \begin{align}
+      \qty[\hat{L}_2, \hat{a}_2] &= \qty(\frac{1}{2\i})^1\hat{a}_1 \\ 
+      \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_2]] = \frac{1}{2\i}\qty[\hat{L}_2, \hat{a}_1] &= -\qty(\frac{1}{2\i})^2\hat{a}_2 \\ 
+      \qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_2]]] = -\qty(\frac{1}{2\i})^2\qty[\hat{L}_2, \hat{a}_2] &= -\qty(\frac{1}{2\i})^3\hat{a}_1 \\ 
+      \qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_2]]]] = -\qty(\frac{1}{2\i})^3\qty[\hat{L}_2, \hat{a}_1] &= \qty(\frac{1}{2\i})^4\hat{a}_2 \\ 
+      \vdots & 
+    \end{align}
+    なる関係を用いると，
+    \begin{align}
+      \e^{-\i\Theta\hat{L}_2}\hat{a}_2\e^{\i\Theta\hat{L}_2} &= \hat{a}_2 + \qty(-\i\Theta)\qty[\hat{L}_2, \hat{a}_2] + \frac{\qty(-\i\Theta)^2}{2!}\qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_2]]\notag \\ 
+      &+ \frac{\qty(-\i\Theta)^3}{3!}\qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_2]]] + \frac{\qty(-\i\Theta)^4}{4!}\qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_2]]]] + \cdots \\ 
+      &= \hat{a}_2 + \qty(-\i\Theta)\qty(\frac{1}{2\i})^1\hat{a}_1 + \frac{\qty(-\i\Theta)^2}{2!}\qty(-1)\qty(\frac{1}{2\i})^2\hat{a}_2 + \frac{\qty(-\i\Theta)^3}{3!}\qty(-1)\qty(\frac{1}{2\i})^3\hat{a}_1 + \frac{\qty(-\i\Theta)^4}{4!}\qty(\frac{1}{2\i})^4\hat{a}_2 + \cdots \\ 
+      &= \hat{a}_2 - \qty(\frac{\Theta}{2})^1\hat{a}_1 - \frac{1}{2!}\qty(\frac{\Theta}{2})^2\hat{a}_2 + \frac{1}{3!}\qty(\frac{\Theta}{2})^3\hat{a}_1 + \frac{1}{4!}\qty(\frac{\Theta}{2})^4\hat{a}_2 + \cdots \\ 
+      &= -\qty[\qty(\frac{\Theta}{2})^1 - \frac{1}{3!}\qty(\frac{\Theta}{2})^3 + \cdots]\hat{a}_1 + \qty[1 - \frac{1}{2!}\qty(\frac{\Theta}{2})^2 + \frac{1}{4!}\qty(\frac{\Theta}{2})^4 - \cdots]\hat{a}_2 \\ 
+      &= -\sin(\Theta / 2)\hat{a}_1 + \cos(\Theta / 2)\hat{a}_2
+    \end{align}
+    である．
+    よって，\refe{ml2a1a2ml2}は，
+    \begin{align}
+      \e^{-\i\Theta\hat{L}_2}\mqty(\hat{a}_1 \\ \hat{a}_2)\e^{\i\Theta\hat{L}_2} = \mqty(
+        \cos(\Theta / 2) & \sin(\Theta / 2) \\ 
+        -\sin(\Theta / 2) & \cos(\Theta / 2)
+      )\mqty(\hat{a}_1 \\ \hat{a}_2)\label{beam-splitter-hamiltonian-prep}
+    \end{align}
+    と書ける．
+    \refe{beam-splitter-hamiltonian-prep}の解釈を考えよう．
+    相互作用ハミルトニアン$\hat{H}_{\r{int}}$の定義は，
+    \begin{align}
+      \hat{H}_{\r{int}} \coloneqq \frac{1}{2}\qty(\e^{\i\Phi}\hat{a}_1\hat{a}_2^{\dag} + \e^{-\i\Phi}\hat{a}_1^{\dag}\hat{a}_2)
+    \end{align}
+    であった．
+    $\Phi = \pi / 2$とすると，
+    \begin{align}
+      \hat{H}_{\r{int}} &= \frac{1}{2}\qty(\e^{\i\pi / 2}\hat{a}_1\hat{a}_2^{\dag} + \e^{-\i\pi / 2}\hat{a}_1^{\dag}\hat{a}_2) \\ 
+      &= \frac{1}{2}\qty(\i\hat{a}_1\hat{a}_2^{\dag} - \i\hat{a}_1^{\dag}\hat{a}_2) \\ 
+      &= \frac{1}{2\i}\qty(\hat{a}_1^{\dag} - \hat{a}_1\hat{a}_2^{\dag}) \\ 
+      &= \hat{L}_2
+    \end{align}
+    と書ける．
+    さらに，\refe{beam-splitter-hamiltonian-prep}において，$\Theta = -t / \hbar$とすれば，
+    \begin{align}
+      \exp\qty(-\i\frac{\hat{H}_{\r{int}}}{\hbar}t)\mqty(\hat{a}_1 \\ \hat{a}_2)\exp\qty(\i\frac{\hat{H}_{\r{int}}}{\hbar}t) = \mqty(
+        \cos(-t / 2\hbar) & \sin(-t / 2\hbar) \\ 
+        -\sin(-t / 2\hbar) & \cos(-t / 2\hbar)
+      )\mqty(\hat{a}_1 \\ \hat{a}_2)
+    \end{align}
+    となる．
+    左辺は，
+    \begin{align}
+      \mqty(\hat{a}_1 \\ \hat{a}_2)
+    \end{align}
+    なる消滅演算子のペアを時間発展演算子で挟んでいる格好である．
+    となれば，右辺はHeisenberg描像で表した消滅演算子であろう\footnote{
+      右辺に出てくる行列はビームスプリッタ行列でないことに注意する．
+      確かに2つの入力電場間の位相ずれや，2つの出力電場間の位相ずれがないと仮定したとき，ビームスプリッタ演算子は\refe{beam-splitter-no-delay}と書ける．
+      しかし，$\Phi = \pi / 2$なる仮定のもと議論している．
+      このような入力電場の位相ずれ$\Phi$に対して，出力電場の位相ずれ$\Psi$をうまく定めれば\refe{beam-splitter-no-delay}の形を実現することができると思うかもしれないが，
+      その試みははかなく終わる．
+      そのような$\Psi$は，$\pi / 2 + \Psi = 2n\pi$かつ$\pi / 2 - \Psi = 2m\pi$，$n, m \in \mathbb{Z}$としなければいけないが，
+      2式を足して，$\pi = 2(n + m)\pi$となり，そのような$n$，$m$は存在しない．
+      要するに，\refe{beam-splitter-hamiltonian-prep}の右辺の行列はビームスプリッタ行列ではないのだ．
+      }．
 \end{document}
