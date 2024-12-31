@@ -205,7 +205,23 @@
     \end{align}
     となればよい．
     つまり，ビームスプリッタ行列$B$がユニタリ行列であれば良い．
-    \ref{unitary-transform}での議論において，
+    \ref{unitary-transform}での議論によりビームスプリッタ演算子は，
+    \begin{align}
+      B = \e^{\i\Lambda/2}
+      \mqty(
+        \e^{\i\Psi/2} & 0 \\ 
+        0 & \e^{-\i\Psi/2}
+      )
+      \mqty(
+        \cos(\Theta / 2) & \sin(\Theta / 2) \\ 
+        -\sin(\Theta / 2) & \cos(\Theta / 2)
+      )\mqty(
+        \e^{\i\Phi/2} & 0 \\ 
+        0 & \e^{-\i\Phi/2}
+      )
+    \end{align}
+    と書ける．
+    ところが，
     \begin{align}
       \mqty(\e^{\i\Psi/2} & 0 \\ 0 & \e^{-\i\Psi/2})
     \end{align}
@@ -283,6 +299,14 @@
       \end{align}
       となる．
     \end{proof}
+    また，
+    % https://www2.yukawa.kyoto-u.ac.jp/~akio.tomiya/filebox/Campbell-Baker-Hausdorff.pdf
+    % \begin{align}
+      
+    % \end{align}
+    \begin{align}
+      \e^{\hat{A}}\hat{B}\
+    \end{align}
   \subsection{ビームスプリッタハミルトニアン}
     ビームスプリッタ行列を再び考えよう．
     今度は入力電場と出力電場の位相差が存在することにして，$\Lambda = 0$のみ課しておく．
@@ -359,11 +383,10 @@
     となる．ただし，$\hat{a}_1$と$\hat{a}_2$が交換することを用いた．
     よって，
     \begin{align}
-      \qty[\hat{L}_2, \hat{a}_1] &= -\qty(\frac{1}{2\i})^1\hat{a}_2 \\ 
-      \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_1]] = -\frac{1}{2\i}\qty[\hat{L}_2, \hat{a}_2] &= -\qty(\frac{1}{2\i})^2\hat{a}_1 \\ 
-      \qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_1]]] = -\qty(\frac{1}{2\i})^2\qty[\hat{L}_2, \hat{a}_1] &= \qty(\frac{1}{2\i})^3\hat{a}_2 \\ 
-      \qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_1]]]] = \qty(\frac{1}{2\i})^3\qty[\hat{L}_2, \hat{a}_2] &= \qty(\frac{1}{2\i})^4\hat{a}_1 \\ 
-      \vdots & 
+      \qty[\hat{L}_2, \hat{a}_1] = -\qty(\frac{1}{2\i})^1\hat{a}_2 \\ 
+      \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_1]] = -\frac{1}{2\i}\qty[\hat{L}_2, \hat{a}_2] = -\qty(\frac{1}{2\i})^2\hat{a}_1 \\ 
+      \qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_1]]] = -\qty(\frac{1}{2\i})^2\qty[\hat{L}_2, \hat{a}_1] = \qty(\frac{1}{2\i})^3\hat{a}_2 \\ 
+      \qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_1]]]] = \qty(\frac{1}{2\i})^3\qty[\hat{L}_2, \hat{a}_2] = \qty(\frac{1}{2\i})^4\hat{a}_1 
     \end{align}
     であるから\refe{etl2-a1}は，
     \begin{align}
@@ -377,11 +400,10 @@
     となる．
     同様に，\refe{ml2a1a2ml2}の第2成分について，
     \begin{align}
-      \qty[\hat{L}_2, \hat{a}_2] &= \qty(\frac{1}{2\i})^1\hat{a}_1 \\ 
-      \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_2]] = \frac{1}{2\i}\qty[\hat{L}_2, \hat{a}_1] &= -\qty(\frac{1}{2\i})^2\hat{a}_2 \\ 
-      \qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_2]]] = -\qty(\frac{1}{2\i})^2\qty[\hat{L}_2, \hat{a}_2] &= -\qty(\frac{1}{2\i})^3\hat{a}_1 \\ 
-      \qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_2]]]] = -\qty(\frac{1}{2\i})^3\qty[\hat{L}_2, \hat{a}_1] &= \qty(\frac{1}{2\i})^4\hat{a}_2 \\ 
-      \vdots & 
+      \qty[\hat{L}_2, \hat{a}_2] = \qty(\frac{1}{2\i})^1\hat{a}_1 \\ 
+      \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_2]] = \frac{1}{2\i}\qty[\hat{L}_2, \hat{a}_1] = -\qty(\frac{1}{2\i})^2\hat{a}_2 \\ 
+      \qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_2]]] = -\qty(\frac{1}{2\i})^2\qty[\hat{L}_2, \hat{a}_2] = -\qty(\frac{1}{2\i})^3\hat{a}_1 \\ 
+      \qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \qty[\hat{L}_2, \hat{a}_2]]]] = -\qty(\frac{1}{2\i})^3\qty[\hat{L}_2, \hat{a}_1] = \qty(\frac{1}{2\i})^4\hat{a}_2
     \end{align}
     なる関係を用いると，
     \begin{align}
@@ -437,5 +459,6 @@
       そのような$\Psi$は，$\pi / 2 + \Psi = 2n\pi$かつ$\pi / 2 - \Psi = 2m\pi$，$n, m \in \mathbb{Z}$としなければいけないが，
       2式を足して，$\pi = 2(n + m)\pi$となり，そのような$n$，$m$は存在しない．
       要するに，\refe{beam-splitter-hamiltonian-prep}の右辺の行列はビームスプリッタ行列ではないのだ．
+      なお，テキストでの(1.106)は何を言いたいのかわからない．
       }．
 \end{document}
