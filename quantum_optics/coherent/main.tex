@@ -1,0 +1,57 @@
+\documentclass{report}
+\input{../../head.tex}
+\begin{document}
+  本節ではコヒーレント状態について議論する．
+  コヒーレント状態$\ket{\alpha}$は，
+  \begin{align}
+    \hat{a}\ket{\alpha} = \alpha\ket{\alpha}
+  \end{align}
+  なる状態である．
+  また，$\alpha = \abs{\alpha}\e^{\i\theta}$となるように$\theta$を定義しておく．
+  \subsection{物理量の平均値・分散}
+    具体的な$\ket{\alpha}$の形を知らなくても，いくつかの物理量の平均値と分散については調べることができる．
+    まず，電場の期待値を調べる．
+    電場演算子$\hat{\bm{E}}(\bm{r}, t)$を自然単位系を用いて書くと，
+    \begin{align}
+      \frac{\i}{2}\bm{e}\qty(\hat{a}\exp\qty{\i(\bm{k}\cdot\bm{r} - \omega t)} - \hat{a}^{\dag}\exp\qty{-\i(\bm{k}\cdot\bm{r} - \omega t)})
+    \end{align}
+    であるから，
+    \begin{align}
+      \ev{\bm{E}(\bm{r}, t)} &= \mel**{\alpha}{\bm{E}(\bm{r}, t)}{\alpha} \\ 
+      &= \frac{\i}{2}\bm{e}\qty(\mel**{\alpha}{\hat{a}}{\alpha}\exp\qty{\i(\bm{k}\cdot\bm{r} - \omega t)} - \mel**{\alpha}{\hat{a}^{\dag}}{\alpha}\exp\qty{-\i(\bm{k}\cdot\bm{r} - \omega t)}) \\ 
+      &= -\frac{1}{2\i}\bm{e}\qty(\alpha\exp\qty{\i(\bm{k}\cdot\bm{r} - \omega t)} - \alpha^*\exp\qty{-\i(\bm{k}\cdot\bm{r} - \omega t)}) \\ 
+      &= -\frac{1}{2\i}\bm{e}\qty(\abs{\alpha}\e^{\i\theta}\exp\qty{\i(\bm{k}\cdot\bm{r} - \omega t)} - \abs{\alpha}\e^{-\i\theta}\exp\qty{-\i(\bm{k}\cdot\bm{r} - \omega t)}) \\ 
+      &= -\abs{\alpha}\bm{e}\sin\qty(\bm{k}\cdot\bm{r} - \omega t + \theta)
+    \end{align}
+    である．
+    \par
+    次に，位置と運動量の平均値と分散について議論する．
+    位置演算子と運動量演算子は生成演算子と消滅演算子を用いて，
+    \begin{align}
+      \hat{x} &\coloneqq \frac{1}{2}\qty(\hat{a} + \hat{a}^{\dag}) \\ 
+      \hat{p} &\coloneqq \frac{1}{2\i}\qty(\hat{a} - \hat{a}^{\dag})
+    \end{align}
+    と書けるから，
+    \begin{align}
+      \ev{x} &= \mel**{\alpha}{\frac{1}{2}\qty(\hat{a} + \hat{a}^{\dag})}{\alpha} \\ 
+      &= \frac{1}{2}\qty(\alpha + \alpha^*) \\ 
+      \ev{x^2} &= \mel**{\alpha}{\frac{1}{4}\qty(\hat{a} + \hat{a}^{\dag})^2}{\alpha} \\ 
+      &= \frac{1}{4}\mel**{\alpha}{\hat{a}^2}{\alpha} + \frac{1}{4}\mel**{\alpha}{\hat{a}\hat{a}^{\dag}}{\alpha} + \frac{1}{4}\mel**{\alpha}{\hat{a}^{\dag}\hat{a}}{\alpha} + \frac{1}{4}\mel**{\alpha}{\qty(\hat{a}^{\dag})^2}{\alpha} \\ 
+      &= \frac{1}{4}\alpha^2 + \frac{1}{4}\mel**{\alpha}{\hat{a}^{\dag}\hat{a} + 1}{\alpha} + \frac{1}{4}\abs{\alpha}^2 + \frac{1}{4}\qty(\alpha^*)^2 \\ 
+      &= \frac{1}{4}\qty(\alpha + \alpha^*)^2 + \frac{1}{4} \\ 
+      \ev{p} &= \mel**{\alpha}{\frac{1}{2\i}\qty(\hat{a} - \hat{a}^{\dag})}{\alpha} \\ 
+      &= \frac{1}{2\i}\qty(\alpha - \alpha^*) \\ 
+      \ev{p^2} &= \mel**{\alpha}{-\frac{1}{4}\qty(\hat{a} - \hat{a}^{\dag})^2}{\alpha} \\ 
+      &= -\frac{1}{4}\mel**{\alpha}{\hat{a}^2}{\alpha} + \frac{1}{4}\mel**{\alpha}{\hat{a}\hat{a}^{\dag}}{\alpha} + \frac{1}{4}\mel**{\alpha}{\hat{a}^{\dag}\hat{a}}{\alpha} - \frac{1}{4}\mel**{\alpha}{\qty(\hat{a}^{\dag})^2}{\alpha} \\ 
+      &= -\frac{1}{4}\alpha^2 + \frac{1}{4}\mel**{\alpha}{\hat{a}^{\dag}\hat{a} + 1}{\alpha} + \frac{1}{4}\abs{\alpha}^2 - \frac{1}{4}\qty(\abs{\alpha}^{*})^2 \\ 
+      &= -\frac{1}{4}\qty(\alpha^2 + \alpha^*)^2 + \frac{1}{4}
+    \end{align}
+    より，
+    \begin{align}
+      \Delta x_{\r{coh}} &\coloneqq \sqrt{\ev{x^2} - \ev{x}^2} = \frac{1}{4} \\ 
+      \Delta p_{\r{coh}} &\coloneqq \sqrt{\ev{p^2} - \ev{p}^2} = \frac{1}{4}
+    \end{align}
+    となる．
+  \subsection{個数状態での展開}
+  \subsection{時間発展}
+\end{document}
