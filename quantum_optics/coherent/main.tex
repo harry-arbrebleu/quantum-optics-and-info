@@ -4,7 +4,7 @@
   本節ではコヒーレント状態について議論する．
   コヒーレント状態$\ket{\alpha}$は，
   \begin{align}
-    \hat{a}\ket{\alpha} = \alpha\ket{\alpha}
+    \hat{a}\ket{\alpha} = \alpha\ket{\alpha}\label{coherent-def}
   \end{align}
   なる状態である．
   また，$\alpha = \abs{\alpha}\e^{\i\theta}$となるように$\theta$を定義しておく．
@@ -53,5 +53,44 @@
     \end{align}
     となる．
   \subsection{個数状態での展開}
-  \subsection{時間発展}
+    コヒーレント状態$\ket{\alpha}$を，Hermite演算子である$\hat{n}$の固有状態である個数状態$\ket{n}$で展開することを考える．
+    \begin{align}
+      \ket{\alpha} = \sum_{n = 0}^{\infty}w_n\ket{n}\label{coherent-expantion}
+    \end{align}
+    である．
+    \refe{coherent-def}に\refe{coherent-expantion}を代入して，\refe{annihilation}の関係式を用いると，
+    \begin{align}
+      \hat{a}\ket{\alpha} = \alpha\ket{\alpha} \\ 
+      \iff \hat{a}\sum_{n = 0}^{\infty}w_n\ket{n} &= \alpha\sum_{n = 0}^{\infty}w_n\ket{n} \\ 
+      \iff \sum_{n = 1}^{\infty}\sqrt{n}w_n\ket{n - 1} &= \sum_{n = 0}^{\infty}\alpha w_n\ket{n} \\ 
+      \iff \sum_{n = 0}^{\infty}\sqrt{n + 1}w_{n + 1}\ket{n} &= \sum_{n = 0}^{\infty}\alpha w_n\ket{n}
+    \end{align}
+    であるから，
+    \begin{align}
+      \sqrt{n + 1}w_{n + 1} &= \alpha w_n \\ 
+      \iff w_n &= \frac{\alpha^n}{\sqrt{n!}}C
+    \end{align}
+    である．
+    $C \coloneqq w_0$と定義した．
+    $\ket{\alpha}$の規格化条件より，
+    \begin{align}
+      1 = \braket{\alpha}{\alpha} &= \qty(\sum_{n}w_n\ket{n})^{\dag}\qty(\sum_{m}w_m\ket{m}) \\ 
+      &= \qty(\sum_{n}\frac{\qty(\alpha^*)^n}{\sqrt{n!}}C^*\bra{n})\qty(\sum_{m}\frac{\alpha^m}{\sqrt{m!}}C\ket{m}) \\ 
+      &= \abs{C}^2\sum_{n, m}\frac{\qty(\alpha^*)^n\alpha^m}{\sqrt{n!}\sqrt{m!}}\braket{n}{m} \\ 
+      &= \abs{C}^2\sum_{n}\frac{\qty(\abs{\alpha}^2)^n}{n!} \\ 
+      &= \abs{C}^2\e^{\abs{\alpha}^2}
+    \end{align}
+    であるから，
+    \begin{align}
+      C = \exp\qty(\frac{\abs{\alpha}^2}{2})
+    \end{align}
+    とすればよい．
+    よって，コヒーレント状態は，
+    \begin{align}
+      \ket{\alpha} = \sum_n \frac{\alpha^n}{\sqrt{n!}}\exp\qty(\frac{\abs{\alpha}^2}{2})\ket{n}\label{coherent-number-state-expantion}
+    \end{align}
+    と書ける．
+    \refe{coherent-number-state-expantion}より，コヒーレント状態とは，個数状態を$\ket{n}$をPoisson分布に従って重ね合わせたものだと分かる．
+  \subsection{コヒーレント状態の時間発展}
+  \subsection{レーザのハミルトニアン}
 \end{document}

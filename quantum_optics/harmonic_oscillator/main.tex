@@ -47,10 +47,113 @@
     \end{align}
     となる．ただし，
     \begin{align}
-      \hat{a}^{\dag} &\coloneqq \qty(\sqrt{\frac{m\omega}{2\hbar}}\hat{x} - \i\sqrt{\frac{1}{2m\hbar\omega}}\hat{p}) \\ 
-      \hat{a} &\coloneqq \qty(\sqrt{\frac{m\omega}{2\hbar}}\hat{x} + \i\sqrt{\frac{1}{2m\hbar\omega}}\hat{p})
+      \hat{a} &\coloneqq \qty(\sqrt{\frac{m\omega}{2\hbar}}\hat{x} + \i\sqrt{\frac{1}{2m\hbar\omega}}\hat{p}) \\ 
+      \hat{a}^{\dag} &\coloneqq \qty(\sqrt{\frac{m\omega}{2\hbar}}\hat{x} - \i\sqrt{\frac{1}{2m\hbar\omega}}\hat{p})
     \end{align}
     と定義した．
+    $\hat{a}$と$\hat{a}^{\dag}$の交換関係を調べる．
+    \begin{align}
+      \qty[\hat{a}, \hat{a}^{\dag}] &= \qty(\sqrt{\frac{m\omega}{2\hbar}}\hat{x} + \i\sqrt{\frac{1}{2m\hbar\omega}}\hat{p})\qty(\sqrt{\frac{m\omega}{2\hbar}}\hat{x} - \i\sqrt{\frac{1}{2m\hbar\omega}}\hat{p}) - \qty(\sqrt{\frac{m\omega}{2\hbar}}\hat{x} - \i\sqrt{\frac{1}{2m\hbar\omega}}\hat{p})\qty(\sqrt{\frac{m\omega}{2\hbar}}\hat{x} + \i\sqrt{\frac{1}{2m\hbar\omega}}\hat{p}) \\ 
+      &= \i\sqrt{\frac{1}{2m\hbar\omega}}\sqrt{\frac{m\omega}{2\hbar}}\qty(\hat{p}\hat{x} - \hat{x}\hat{p}) -  \i\sqrt{\frac{1}{2m\hbar\omega}}\sqrt{\frac{m\omega}{2\hbar}}\qty(\hat{x}\hat{p} - \hat{p}\hat{x}) \\ 
+      &= -\frac{\i}{\hbar}\qty[\hat{x}, \hat{p}] \\ 
+      &= 1
+    \end{align}
+    となる．
+    \par
+    個数演算子$\hat{n}$を，
+    \begin{align}
+      \hat{n} \coloneqq \hat{a}^{\dag}\hat{a}
+    \end{align}
+    と定義する．
+    個数演算子$\hat{n}$は，
+    \begin{align}
+      \hat{n}^{\dag} = \qty(\hat{a}^{\dag}\hat{a})^{\dag} = \hat{a}^{\dag}\hat{a}
+    \end{align}
+    であるから，Hermite演算子であり，実固有値とそれに属する固有ベクトルが存在する．
+    \begin{align}
+      \hat{n}\ket{n} = n\ket{n}\label{number-operator}
+    \end{align}
+    を考える．
+    まず，\refe{number-operator}に左から$\bra{n}$をかけると，
+    \begin{align}
+      \mel**{n}{\hat{n}}{n} &= n\braket{n}{n} \\ 
+      \iff \mel**{n}{\hat{a}^{\dag}\hat{a}}{n} &= n \\ 
+      \iff \abs{\hat{a}\ket{n}}^2 &= n
+    \end{align}
+    である．
+    Hibert空間は内積空間であるから，
+    \begin{align}
+      \abs{\hat{a}\ket{n}}^2 \geq 0
+    \end{align}
+    であるので，$n \geq 0$となる．
+    \par
+    次に，\refe{number-operator}に左から$\hat{a}^{\dag}$をかける．
+    \begin{align}
+      \hat{a}^{\dag}\hat{a}^{\dag}\hat{a}\ket{n} &= \hat{a}^{\dag}n\ket{n} \\ 
+      \iff \hat{a}^{\dag}\qty(\hat{a}\hat{a}^{\dag} - 1)\ket{n} &= n\hat{a}^{\dag}\ket{n} \\ 
+      \iff \hat{n}\qty(\hat{a}^{\dag}\ket{n}) &= (n + 1)\qty(\hat{a}^{\dag}\ket{n}) \\ 
+    \end{align}
+    となる．
+    よって，$\hat{a}^{\dag}\ket{n}$は固有値が$n + 1$の$\hat{n}$の固有ベクトルであるから，
+    \begin{align}
+      \ket{n + 1} &\coloneqq \frac{1}{C_{n, +}}\hat{a}^{\dag}\ket{n} \\ 
+    \end{align}
+    と定義する．
+    $C_{n, +}$は規格化定数である．
+    \begin{align}
+      1 = \braket{n + 1}{n + 1} &= \frac{1}{\abs{C_{n, +}}^2}\mel**{n}{\hat{a}\hat{a}^{\dag}}{n} \\ 
+      &= \frac{1}{\abs{C_{n, +}}^2}\mel**{n}{\qty(\hat{a}^{\dag}\hat{a} + 1)}{n} \\ 
+      &= \frac{n + 1}{\abs{C_{n, +}}}^2
+    \end{align}
+    より，
+    \begin{align}
+      C_{n, +} = \sqrt{n + 1}
+    \end{align}
+    としても矛盾しない．
+    よって，
+    \begin{align}
+      \hat{a}^{\dag}\ket{n} = \sqrt{n + 1}\ket{n + 1}\label{creation}
+    \end{align}
+    となる．
+    \par
+    最後に，\refe{number-operator}に左から$\hat{a}$をかける．
+    \begin{align}
+      \hat{a}\hat{a}^{\dag}\hat{a}\ket{n} &= \hat{a}n\ket{n} \\ 
+      \iff \qty(\hat{a}^{\dag}\hat{a} + 1)\hat{a}\ket{n} &= n\hat{a}\ket{n} \\ 
+      \iff \hat{n}\qty(\hat{a}\ket{n}) &= (n - 1)\qty(\hat{a}\ket{n})
+    \end{align}
+    となる．
+    よって，$\hat{a}\ket{n}$は固有値が$n - 1$の$\hat{n}$の固有ベクトルであるから，
+    \begin{align}
+      \ket{n - 1} &\coloneqq \frac{1}{C_{n, -}}\hat{a}\ket{n} \\ 
+    \end{align}
+    と定義する．
+    $C_{n, +}$は規格化定数である．
+    \begin{align}
+      1 = \braket{n - 1}{n - 1} &= \frac{1}{\abs{C_{n, -}}^2}\mel**{n}{\hat{a}^{\dag}\hat{a}}{n} \\ 
+      &= \frac{n}{\abs{C_{n, -}}^2}
+    \end{align}
+    より，
+    \begin{align}
+      C_{n, -} = \sqrt{n}
+    \end{align}
+    としても矛盾しない．
+    よって，
+    \begin{align}
+      \hat{a}\ket{n} = \sqrt{n}\ket{n - 1}\label{annihilation}
+    \end{align}
+    となる．
+    \refe{annihilation}より，$n$は非負整数であるべきである．
+    もし，$n = 0.5$であるなら，\refe{annihilation}は，
+    \begin{align}
+      \hat{a}\ket{0.5} &= \sqrt{0.5}\ket{-0.5}
+    \end{align}
+    となり，$n \geq 0$を満たさない．
+    一方，$n$が非負整数であるなら，$n = 0$のとき，
+    \begin{align}
+      \hat{a}\ket{0} = 0
+    \end{align}
+    となり，$n \geq 0$が満たされる．
   \subsection{Hermite多項式}
     以降の議論で用いるために，特殊函数の1つであるHermite多項式を紹介しておこう．
     Hermite多項式はStrum-Liouville演算子のうちの1つの演算子の固有函数であり，実数全体で定義された実数函数$H_n(s)$に対して，
@@ -221,8 +324,8 @@
     \refe{before-schrodinger-oscillator}を\refe{input-to-schrodinger}に代入すれば，
     \begin{align}
       \frac{1}{2}m\omega^2x^2\psi(x) + \frac{1}{2m}\mel**{x}{\hat{p}^2}{\psi} &= E\psi(x) \\ 
-      \Leftrightarrow \frac{1}{2}m\omega^2x^2\psi(x) + \frac{1}{2m}\qty(\frac{\hbar}{\i})^2\dv[2]{x}\psi(x) &= E\psi(x) \\ 
-      \Leftrightarrow \qty(-\frac{\hbar}{2m}\dv[2]{x} + \frac{1}{2}m\omega^2x^2)\psi(x) &= E\psi(x)\label{schrodinger-eq-wave-func}
+      \iff \frac{1}{2}m\omega^2x^2\psi(x) + \frac{1}{2m}\qty(\frac{\hbar}{\i})^2\dv[2]{x}\psi(x) &= E\psi(x) \\ 
+      \iff \qty(-\frac{\hbar}{2m}\dv[2]{x} + \frac{1}{2}m\omega^2x^2)\psi(x) &= E\psi(x)\label{schrodinger-eq-wave-func}
     \end{align}
     となる．
   \subsection{Schrodingerの解法}
@@ -243,10 +346,10 @@
     }すると，
     \begin{align}
       \qty(-\frac{\hbar}{2m}\dv[2]{x} + \frac{1}{2}m\omega^2x^2)\psi(x) &= E\psi(x) \\ 
-      \Leftrightarrow \qty[\dv[2]{x} - \frac{m^2\omega^2}{\hbar^2}x^2 + \frac{2mE}{\hbar}]\psi(x) &= 0 \\ 
-      \Leftrightarrow \qty[\qty(\dv{s}{x})^2\dv[2]{s} - \frac{\hbar}{m\omega}s^2 + \frac{2mE}{\hbar^2}]f(s)\exp\qty(-\frac{s^2}{2}) &= 0 \\ 
-      \Leftrightarrow \qty[\frac{m\omega}{\hbar}\dv[2]{s} - \frac{\hbar}{m\omega}s^2 + \frac{2mE}{\hbar^2}]f(s)\exp\qty(-\frac{s^2}{2}) &= 0 \\ 
-      \Leftrightarrow \qty(\dv[2]{s} - s^2 + \frac{2E}{\hbar\omega})f(s)\exp\qty(-\frac{s^2}{2}) &= 0 \label{before-hermite-polynominal}
+      \iff \qty[\dv[2]{x} - \frac{m^2\omega^2}{\hbar^2}x^2 + \frac{2mE}{\hbar}]\psi(x) &= 0 \\ 
+      \iff \qty[\qty(\dv{s}{x})^2\dv[2]{s} - \frac{\hbar}{m\omega}s^2 + \frac{2mE}{\hbar^2}]f(s)\exp\qty(-\frac{s^2}{2}) &= 0 \\ 
+      \iff \qty[\frac{m\omega}{\hbar}\dv[2]{s} - \frac{\hbar}{m\omega}s^2 + \frac{2mE}{\hbar^2}]f(s)\exp\qty(-\frac{s^2}{2}) &= 0 \\ 
+      \iff \qty(\dv[2]{s} - s^2 + \frac{2E}{\hbar\omega})f(s)\exp\qty(-\frac{s^2}{2}) &= 0 \label{before-hermite-polynominal}
     \end{align}
     と書ける．第1項について，$\dv[2]{s}f(s)\exp\qty(-\frac{s^2}{2})$を計算しよう．
     Leibniz則より，
@@ -258,7 +361,7 @@
     と計算できるから，\refe{before-hermite-polynominal}は，
     \begin{align}
       \qty(\dv[2]{s} - s^2 + \frac{2E}{\hbar\omega})f(s)\exp\qty(-\frac{s^2}{2}) &= 0 \\ 
-      \Leftrightarrow \qty(\dv[2]{s} - 2s\dv{s} + \qty(s^2 - 1) - s^2 + \frac{2E}{\hbar\omega})f(s)\exp\qty(-\frac{s^2}{2}) &= 0 \\ 
+      \iff \qty(\dv[2]{s} - 2s\dv{s} + \qty(s^2 - 1) - s^2 + \frac{2E}{\hbar\omega})f(s)\exp\qty(-\frac{s^2}{2}) &= 0 \\ 
       \Rightarrow \qty(\dv[2]{s} - 2s\dv{s} + \frac{2E}{\hbar\omega} - 1)f(s) &= 0
     \end{align}
     となる．
