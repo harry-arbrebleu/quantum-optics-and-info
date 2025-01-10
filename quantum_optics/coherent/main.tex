@@ -37,13 +37,13 @@
       &= \frac{1}{2}\qty(\alpha + \alpha^*) \\ 
       \ev{x^2} &= \mel**{\alpha}{\frac{1}{4}\qty(\hat{a} + \hat{a}^{\dag})^2}{\alpha} \\ 
       &= \frac{1}{4}\mel**{\alpha}{\hat{a}^2}{\alpha} + \frac{1}{4}\mel**{\alpha}{\hat{a}\hat{a}^{\dag}}{\alpha} + \frac{1}{4}\mel**{\alpha}{\hat{a}^{\dag}\hat{a}}{\alpha} + \frac{1}{4}\mel**{\alpha}{\qty(\hat{a}^{\dag})^2}{\alpha} \\ 
-      &= \frac{1}{4}\alpha^2 + \frac{1}{4}\mel**{\alpha}{\hat{a}^{\dag}\hat{a} + 1}{\alpha} + \frac{1}{4}\abs{\alpha}^2 + \frac{1}{4}\qty(\alpha^*)^2 \\ 
+      &= \frac{1}{4}\alpha^2 + \frac{1}{4}\mel**{\alpha}{\qty(\hat{a}^{\dag}\hat{a} + 1)}{\alpha} + \frac{1}{4}\abs{\alpha}^2 + \frac{1}{4}\qty(\alpha^*)^2 \\ 
       &= \frac{1}{4}\qty(\alpha + \alpha^*)^2 + \frac{1}{4} \\ 
       \ev{p} &= \mel**{\alpha}{\frac{1}{2\i}\qty(\hat{a} - \hat{a}^{\dag})}{\alpha} \\ 
       &= \frac{1}{2\i}\qty(\alpha - \alpha^*) \\ 
       \ev{p^2} &= \mel**{\alpha}{-\frac{1}{4}\qty(\hat{a} - \hat{a}^{\dag})^2}{\alpha} \\ 
       &= -\frac{1}{4}\mel**{\alpha}{\hat{a}^2}{\alpha} + \frac{1}{4}\mel**{\alpha}{\hat{a}\hat{a}^{\dag}}{\alpha} + \frac{1}{4}\mel**{\alpha}{\hat{a}^{\dag}\hat{a}}{\alpha} - \frac{1}{4}\mel**{\alpha}{\qty(\hat{a}^{\dag})^2}{\alpha} \\ 
-      &= -\frac{1}{4}\alpha^2 + \frac{1}{4}\mel**{\alpha}{\hat{a}^{\dag}\hat{a} + 1}{\alpha} + \frac{1}{4}\abs{\alpha}^2 - \frac{1}{4}\qty(\abs{\alpha}^{*})^2 \\ 
+      &= -\frac{1}{4}\alpha^2 + \frac{1}{4}\mel**{\alpha}{\qty(\hat{a}^{\dag}\hat{a} + 1)}{\alpha} + \frac{1}{4}\abs{\alpha}^2 - \frac{1}{4}\qty(\abs{\alpha}^{*})^2 \\ 
       &= -\frac{1}{4}\qty(\alpha^2 + \alpha^*)^2 + \frac{1}{4}
     \end{align}
     より，
@@ -131,10 +131,10 @@
       \hat{H}_{\r{laser}} \propto \i\qty(\alpha\hat{a}^{\dag} - \alpha^*\hat{a})
     \end{align}
     とかける\footnote{らしい}．
-    この系において，真空状態$\ket{0}$の時間発展は，
+    この系において，真空状態$\ket{0}$の時間発展は
     \begin{align}
-      \exp\qty(-\i\frac{\hat{H}}{\hbar}t)\ket{0} &= \exp\qty(-\i\frac{\i\qty(\alpha\hat{a}^{\dag} - \alpha^*\hat{a})}{\hbar}t) \\ 
-      &= \exp(\frac{\qty(\alpha\hat{a}^{\dag} - \alpha^*\hat{a})}{\hbar}t) \\ 
+      \exp\qty(-\i\frac{\hat{H}}{\hbar}t)\ket{0} &= \exp\qty(-\i\frac{\i\qty(\alpha\hat{a}^{\dag} - \alpha^*\hat{a})}{\hbar}t)\ket{0} \\ 
+      &= \exp(\frac{\qty(\alpha\hat{a}^{\dag} - \alpha^*\hat{a})}{\hbar}t)\ket{0} \\ 
       &= 
     \end{align}
 \end{document}

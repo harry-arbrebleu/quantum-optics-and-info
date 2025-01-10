@@ -256,13 +256,11 @@
       T + R = 1
     \end{align}
     が成立することに注意する．
-  \subsection{Baker-Campbell-Hausdorffの公式}
-    次小節以降で頻出するBaker-Campbell-Hausdorffの公式を示しておこう．
-    Baker-Campbell-Hausdorffの公式は，
+  \subsection{Baker-Campbell-Hausdorffの公式1}
     \begin{align}
       \e^{\hat{A}}\hat{B}\e^{-\hat{A}} = \hat{B} + \qty[\hat{A}, \hat{B}] + \frac{1}{2!}\qty[\hat{A}, \qty[\hat{A}, \hat{B}]] + \cdots
     \end{align}
-    なる式である．
+    なる式を示す．
     \begin{proof}
       函数$f(t)$を，
       \begin{align}
@@ -299,14 +297,113 @@
       \end{align}
       となる．
     \end{proof}
-    また，
-    % https://www2.yukawa.kyoto-u.ac.jp/~akio.tomiya/filebox/Campbell-Baker-Hausdorff.pdf
-    % \begin{align}
-    WIP
-    % \end{align}
+  \subsection{Baker-Campbell-Hausdorffの公式2}
     \begin{align}
-      \e^{\hat{A}}\hat{B}
+      \e^{\hat{A}}\e^{\hat{B}} = \exp\qty(\hat{A} + \hat{B} + \frac{1}{2}\qty[\hat{A}, \hat{B}] + \frac{1}{12}\qty[\qty(\hat{A} - \hat{B}), \qty[\hat{A}, \hat{B}]] + \cdots)
     \end{align}
+    なる式を示す．
+    \begin{proof}
+      $f(t)$と$g(t)$を，
+      \begin{align}
+        \begin{dcases}
+          f(t) \coloneqq \e^{t\hat{A}}\e^{t\hat{B}} = \e^{g(t)} \\ 
+          g(t) \coloneqq \log\qty(\e^{t\hat{A}}\e^{t\hat{B}}) = \log\qty(f(t))
+        \end{dcases}
+      \end{align}
+      と定義する．
+      明らかに，
+      \begin{align}
+        f(t) = \e^{g(t)}
+      \end{align}
+      である．
+      $f(t)$のTaylor展開を考える．
+      \begin{align}
+        \dv{t}f(t) &= \hat{A}\e^{t\hat{A}}\e^{t\hat{B}} + \e^{t\hat{A}}B\e^{t\hat{B}} \\ 
+        &= \e^{t\hat{A}}\qty(\hat{A} + \hat{B})\e^{t\hat{B}} \\ 
+        \dv[2]{t}f(t) &= \e^{t\hat{A}}\qty{\hat{A}\qty(\hat{A} + \hat{B}) + \qty(\hat{A} + \hat{B})\hat{B}}\e^{t\hat{B}} \\ 
+        &= \e^{t\hat{A}}\qty{\hat{A}^2 + 2\hat{A}\hat{B} + \hat{B}^2}\e^{t\hat{B}} \\
+        &= \e^{t\hat{A}}\qty{\hat{A}^2 + \hat{A}\hat{B} + \hat{B}\hat{A} + \hat{B}^2 + \hat{A}\hat{B} - \hat{B}\hat{A}}\e^{t\hat{B}} \\ 
+        &= \e^{t\hat{A}}\qty{\qty(\hat{A} + \hat{B})^2 + \qty[\hat{A}, \hat{B}]}\e^{t\hat{B}} \\ 
+        \dv[3]{t}f(t) &= \e^{t\hat{A}}\qty{\hat{A}\qty(\hat{A} + 2\hat{A}\hat{B} + \hat{B}^2) + \qty(\hat{A} + 2\hat{A}\hat{B} + \hat{B}^2)\hat{B}}\e^{t\hat{B}} \\ 
+        &= \e^{t\hat{A}}\qty{\hat{A}^3 + 3\hat{A}^2\hat{B} + 3\hat{A}\hat{B}^2 + \hat{B}^3}\e^{t\hat{B}} \\ 
+        &= \e^{t\hat{A}}\qty{\hat{A}^3 + \hat{A}^2\hat{B} + \hat{A}\hat{B}\hat{A} + \hat{B}\hat{A}^2 + \hat{B}^2\hat{A} + \hat{B}\hat{A}\hat{B} + \hat{A}\hat{B}^2 + \hat{B}^3 + 2\hat{A}^2\hat{B} - \hat{A}\hat{B}\hat{A} - \hat{B}\hat{A}^2 - \hat{B}^2\hat{A} - \hat{B}\hat{A}\hat{B} + 2\hat{A}\hat{B}^2}\e^{t\hat{B}} \\ 
+        &= \e^{t\hat{A}}\qty{\qty(\hat{A} + \hat{B})^3 + \hat{A}^2\hat{B} - \hat{A}\hat{B}\hat{A} + \hat{A}^2\hat{B} - \hat{B}\hat{A}^2 + \hat{A}\hat{B}^2 - \hat{B}^2\hat{A} + \hat{A}\hat{B}^2 - \hat{B}\hat{A}\hat{B}}\e^{t\hat{B}} \\ 
+        &= \e^{t\hat{A}}\qty{\qty(\hat{A} + \hat{B})^3 + \hat{A}\qty[\hat{A}, \hat{B}] + \qty[\hat{A}^2, \hat{B}] + \qty[\hat{A}, \hat{B}^2] + \qty[\hat{A}, \hat{B}]\hat{B}}\e^{t\hat{B}} 
+      \end{align}
+      となる．
+      $t = 0$周りで$f(t)$をTaylor展開すると，
+      \begin{align}
+        f(t) &= f(0) + \frac{1}{1!}\dv{t}f(t)\eval_{t = 0}t + \frac{1}{2!}\dv[2]{t}f(t)\eval_{t = 0}t^2 + \frac{1}{3!}\dv[3]{t}f(t)\eval_{t = 0}t^3 + \cdots \\ 
+        &= 1 + \frac{1}{1!}\qty(\hat{A} + \hat{B})t + \frac{1}{2!}\qty{\qty(\hat{A} + \hat{B})^2 + \qty[\hat{A}, \hat{B}]}t^2 + \frac{1}{3!}\qty{\qty(\hat{A} + \hat{B})^3 + \hat{A}\qty[\hat{A}, \hat{B}] + \qty[\hat{A}^2, \hat{B}] + \qty[\hat{A}, \hat{B}^2] + \qty[\hat{A}, \hat{B}]\hat{B}}t^3 + \cdots \\ 
+        &= 1 + \hat{P}_1t + \hat{P}_2t^2 + \hat{P}_3t^3 + \cdots \\ 
+      \end{align}
+      と書ける．
+      ただし，
+      \begin{align}
+        \hat{P}_1 &\coloneqq \frac{1}{1!}\qty(\hat{A} + \hat{B}) \\ 
+        \hat{P}_2 &\coloneqq \frac{1}{2!}\qty{\qty(\hat{A} + \hat{B})^2 + \qty[\hat{A}, \hat{B}]} \\ 
+        \hat{P}_3 &\coloneqq \frac{1}{3!}\qty{\qty(\hat{A} + \hat{B})^3 + \hat{A}\qty[\hat{A}, \hat{B}] + \qty[\hat{A}^2, \hat{B}] + \qty[\hat{A}, \hat{B}^2] + \qty[\hat{A}, \hat{B}]\hat{B}}
+      \end{align}
+      と定義した．
+      $F(t)$を，
+      \begin{align}
+        F(t) &\coloneqq f(t) - 1 \\ 
+        &= \hat{P}_1t + \hat{P}_2t^2 + \hat{P}_3t^3 + \cdots
+      \end{align}
+      と定義する．
+      $\log (1 + x)$は$x = 0$のまわりで，
+      \begin{align}
+        \log(1 + x) &= \qty(\log(1 + x))\eval_{x = 0} + \frac{1}{1!}\qty(\dv{x}\log(1 + x))\eval_{x = 0}x + \frac{1}{2!}\qty(\dv[2]{x}\log(1 + x))\eval_{x = 0}x^2 + \frac{1}{3!}\qty(\dv[3]{x}\log(1 + x))\eval_{x = 0}x^3 + \cdots \\ 
+        &= x - \frac{x^2}{2} + \frac{x^3}{3} + \cdots
+      \end{align}
+      であることと，$t \to 0$で$F(t) \to 0$であることを用いて$g(t)$を$t = 0$の周りでTaylor展開すると，
+      \begin{align}
+        g(t) &= \log(f(t)) \\ 
+        &= \log(1 + F(t)) \\ 
+        &= F(t) - \frac{F(t)^2}{2} + \frac{F(t)^3}{3} - \cdots \\ 
+        &= \qty(\hat{P}_1t + \hat{P}_2t^2 + \hat{P}_3t^3) - \frac{1}{2}\qty(\hat{P}_1t + \hat{P}_2t^2 + \hat{P}_3t^3)^2 + \frac{1}{3}\qty(\hat{P}_1t + \hat{P}_2t^2 + \hat{P}_3t^3)^3 - \cdots \\ 
+        &= \hat{P}_1t + \qty(\hat{P}_2 - \frac{1}{2}\hat{P}_1^2)t^2 + \qty{\hat{P}_3 - \frac{1}{2}\qty(\hat{P}_1\hat{P}_2 + \hat{P}_2\hat{P}_1) + \frac{1}{3}\hat{P}_1^3}t^3 - \cdots 
+      \end{align}
+      となる．
+      $\hat{P}_1$，$\hat{P}_2$，$\hat{P}_3$の定義を思い出せば，
+      \begin{align}
+        \qty(t^1\text{の係数}) &= \hat{P}_1 = \qty(\hat{A} + \hat{B}) \\ 
+        \qty(t^2\text{の係数}) &= \hat{P}_2 - \frac{1}{2}\hat{P}_1^2 \\ 
+        &= \frac{1}{2}\qty{\qty(\hat{A} + \hat{B})^2 + \qty[\hat{A}, \hat{B}]} - \frac{1}{2}\qty(\hat{A} + \hat{B})^2 \\ 
+        &= \frac{1}{2}\qty[\hat{A}, \hat{B}] \\ 
+        \qty(t^3\text{の係数}) &= \hat{P}_3 - \frac{1}{2}\qty(\hat{P}_1\hat{P}_2 + \hat{P}_2\hat{P}_1) + \frac{1}{3}\hat{P}_1^3 \\ 
+        &= \frac{1}{3!}\qty{\qty(\hat{A} + \hat{B})^3 + \hat{A}\qty[\hat{A}, \hat{B}] + \qty[\hat{A}^2, \hat{B}] + \qty[\hat{A}, \hat{B}^2] + \qty[\hat{A}, \hat{B}]\hat{B}} \notag \\ 
+        &- \frac{1}{2}\qty[\qty(\hat{A} + \hat{B})\frac{1}{2!}\qty{\qty(\hat{A} + \hat{B})^2 + \qty[\hat{A}, \hat{B}]} + \frac{1}{2!}\qty{\qty(\hat{A} + \hat{B})^2 + \qty[\hat{A}, \hat{B}]}\qty(\hat{A} + \hat{B})] \notag \\ 
+        &+ \frac{1}{3}\qty(\hat{A} + \hat{B})^3 \\ 
+        &= \frac{1}{6}\qty(\hat{A} + \hat{B})^3 + \frac{1}{6}\hat{A}\qty[\hat{A}, \hat{B}] + \frac{1}{6}\qty{\hat{A}\qty[\hat{A}, \hat{B}] + \qty[\hat{A}, \hat{B}]\hat{A}} + \frac{1}{6}\qty{\hat{B}\qty[\hat{A}, \hat{B}] + \qty[\hat{A}, \hat{B}]\hat{B}} + \frac{1}{6}\qty[\hat{A}, \hat{B}]\hat{B} \notag \\ 
+        &- \frac{1}{2}\qty(\hat{A} + \hat{B})^3 - \frac{1}{4}\hat{A}\qty[\hat{A}, \hat{B}] - \frac{1}{4}\hat{B}\qty[\hat{A}, \hat{B}] - \frac{1}{4}\qty[\hat{A}, \hat{B}]\hat{A} - \frac{1}{4}\qty[\hat{A}, \hat{B}]\hat{B} \notag \\ 
+        &+ \frac{1}{3}\qty(\hat{A} + \hat{B})^3 \\ 
+        &= \frac{1}{12}\hat{A}\qty[\hat{A}, \hat{B}] - \frac{1}{12}\hat{B}\qty[\hat{A}, \hat{B}] + \frac{1}{12}\qty[\hat{A}, \hat{B}]\hat{A} - \frac{1}{12}\qty[\hat{A}, \hat{B}]\hat{B} \\ 
+        &= \frac{1}{12}\qty(\hat{A} - \hat{B})\qty[\hat{A}, \hat{B}] - \frac{1}{12}\qty[\hat{A}, \hat{B}]\qty(\hat{A} - \hat{B}) \\ 
+        &= \frac{1}{12}\qty[\qty(\hat{A} - \hat{B}), \qty[\hat{A}, \hat{B}]]
+      \end{align}
+      よって，
+      \begin{align}
+        \e^{t\hat{A}}\e^{t\hat{B}} = f(t) &= \e^{g(t)} \\ 
+        &= \exp\qty{\qty(\hat{A} + \hat{B})t + \frac{1}{2}\qty[\hat{A}, \hat{B}]t^2 + \frac{1}{12}\qty[\qty(\hat{A} - \hat{B}), \qty[\hat{A}, \hat{B}]]t^3 + \cdots} \\ 
+      \end{align}
+      となるから，
+      $t = 0$とすれば，
+      \begin{align}
+        \e^{\hat{A}}\e^{\hat{B}} = \exp\qty{\qty(\hat{A} + \hat{B}) + \frac{1}{2}\qty[\hat{A}, \hat{B}] + \frac{1}{12}\qty[\qty(\hat{A} - \hat{B}), \qty[\hat{A}, \hat{B}]] + \cdots}
+      \end{align}
+      となる．
+      特に，
+      \begin{align}
+        \qty[\qty(\hat{A} - \hat{B}), \qty[\hat{A}, \hat{B}]] = 0 \\ 
+        \iff \qty[\hat{A}, \qty[\hat{A}, \hat{B}]] = \qty[\hat{B}, \qty[\hat{A}, \hat{B}]] = 0
+      \end{align}
+      のときは，
+      \begin{align}
+        \e^{\hat{A}}\e^{\hat{B}} = \exp\qty{\qty(\hat{A} + \hat{B}) + \frac{1}{2}\qty[\hat{A}, \hat{B}]}
+      \end{align}
+      となる．
+    \end{proof}
   \subsection{ビームスプリッタハミルトニアン}
     ビームスプリッタ行列を再び考えよう．
     今度は入力電場と出力電場の位相差が存在することにして，$\Lambda = 0$のみ課しておく．
