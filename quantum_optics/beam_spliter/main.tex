@@ -296,6 +296,15 @@
         \e^{\hat{A}}\hat{B}\e^{\hat{A}} = \hat{B} + \qty[\hat{A}, \hat{B}] + \frac{1}{2!}\qty[\hat{A}, \qty[\hat{A}, \hat{B}]] + \cdots
       \end{align}
       となる．
+      特に，
+      \begin{align}
+        \qty[\hat{A}, \qty[\hat{A}, \hat{B}]] = 0
+      \end{align}
+      のとき，
+      \begin{align}
+        \e^{\hat{A}}\hat{B}\e^{\hat{A}} = \hat{B} + \qty[\hat{A}, \hat{B}]
+      \end{align}
+      である．
     \end{proof}
   \subsection{Baker-Campbell-Hausdorffの公式2}
     \begin{align}
@@ -311,11 +320,6 @@
         \end{dcases}
       \end{align}
       と定義する．
-      明らかに，
-      \begin{align}
-        f(t) = \e^{g(t)}
-      \end{align}
-      である．
       $f(t)$のTaylor展開を考える．
       \begin{align}
         \dv{t}f(t) &= \hat{A}\e^{t\hat{A}}\e^{t\hat{B}} + \e^{t\hat{A}}B\e^{t\hat{B}} \\ 
