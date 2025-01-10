@@ -91,6 +91,50 @@
     \end{align}
     と書ける．
     \refe{coherent-number-state-expantion}より，コヒーレント状態とは，個数状態を$\ket{n}$をPoisson分布に従って重ね合わせたものだと分かる．
-  \subsection{コヒーレント状態の時間発展}
+  \subsection{調和振動子ハミルトニアンでの時間発展}
+    まず，コヒーレント状態$\ket{\alpha}$が調和振動子ハミルトニアン$\hat{H}$があるときにどのように時間発展発展するか調べる．
+    系のハミルトニアンは，
+    \begin{align}
+      \hat{H} = \hbar\omega\qty(\hat{n} + \frac{1}{2})
+    \end{align}
+    と書けるから，
+    \begin{align}
+      \ket{\alpha(t)} &= \exp\qty(-\i\frac{\hat{H}}{\hbar}t)\ket{\alpha} \\ 
+      &= \exp\qty(-\i\frac{\omega}{2}t)\e^{-\i\omega t \hat{n}}\ket{\alpha} \\ 
+      &= \exp\qty(-\i\frac{\omega}{2}t)\sum_{m}\frac{(-\i\omega t)^m}{m!}\hat{n}^m \sum_{n}\frac{\alpha^n}{\sqrt{n!}}\exp\qty(\frac{\abs{\alpha}^2}{2})\ket{n} \\ 
+      &= \exp\qty(-\i\frac{\omega}{2}t)\exp\qty(\frac{\abs{\alpha}^2}{2}) \sum_{n}\frac{\alpha^n}{\sqrt{n!}}\sum_{m}\frac{(-\i\omega t)^m}{m!}\hat{n}^m\ket{n} \\ 
+      &= \exp\qty(-\i\frac{\omega}{2}t)\exp\qty(\frac{\abs{\alpha}^2}{2}) \sum_{n}\frac{\alpha^n}{\sqrt{n!}}\sum_{m}\frac{(-\i n\omega t)^m}{m!} \ket{n} \\ 
+      &= \exp\qty(-\i\frac{\omega}{2}t)\exp\qty(\frac{\abs{\alpha}^2}{2}) \sum_{n}\frac{\alpha^n}{\sqrt{n!}}\e^{-\i n\omega t}\ket{n} \\ 
+      &= \exp\qty(-\i\frac{\omega}{2}t) \sum_{n}\frac{\qty(\alpha\e^{-\i\omega t})^n}{\sqrt{n!}}\exp\qty(\frac{\abs{\alpha}^2}{2})\ket{n} \\ 
+      &= \exp\qty(-\i\frac{\omega}{2}t) \sum_{n}\frac{\qty(\alpha\e^{-\i\omega t})^n}{\sqrt{n!}}\exp\qty(\frac{\abs{\alpha\e^{-\i\omega t}}^2}{2})\ket{n} \\ 
+      &= \exp\qty(-\i\frac{\omega}{2}t)\ket{\alpha\e^{-\i\omega t}}
+    \end{align}
+    グローバル位相は無視してよいので，
+    \begin{align}
+      \ket{\alpha(t)} = \ket{\alpha\e^{-\i\omega t}}
+    \end{align}
+    と分かる．
+    \par
+    次に個数状態の時間発展を調べる．
+    \begin{align}
+      \ket{n(t)} &= \exp\qty(-\i\frac{\hat{H}}{\hbar}t)\ket{n} \\ 
+      &= \exp\qty(-\i\frac{\omega}{2}t)\e^{-\i\omega t \hat{n}}\ket{n} \\ 
+      &= \exp\qty(-\i\frac{\omega}{2}t)\sum_{m}\frac{(-\i\omega t)^m}{m!}\hat{n}^m \ket{n} \\ 
+      &= \exp\qty(-\i\frac{\omega}{2}t)\sum_{m}\frac{(-\i n\omega t)^m}{m!} \ket{n} \\ 
+      &= \exp\qty(-\i\frac{\omega}{2}t)\e^{-\i n\omega t} \ket{n}
+    \end{align}
+    となり，周波数が2倍になったように見える\footnote{らしい}．
   \subsection{レーザのハミルトニアン}
+    真空場$\ket{0}$が$\ket{\alpha}$に時間変化するものがレーザである．
+    レーザのハミルトニアンは，
+    \begin{align}
+      \hat{H}_{\r{laser}} \propto \i\qty(\alpha\hat{a}^{\dag} - \alpha^*\hat{a})
+    \end{align}
+    とかける\footnote{らしい}．
+    この系において，真空状態$\ket{0}$の時間発展は，
+    \begin{align}
+      \exp\qty(-\i\frac{\hat{H}}{\hbar}t)\ket{0} &= \exp\qty(-\i\frac{\i\qty(\alpha\hat{a}^{\dag} - \alpha^*\hat{a})}{\hbar}t) \\ 
+      &= \exp(\frac{\qty(\alpha\hat{a}^{\dag} - \alpha^*\hat{a})}{\hbar}t) \\ 
+      &= 
+    \end{align}
 \end{document}

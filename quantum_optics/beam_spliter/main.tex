@@ -260,7 +260,7 @@
     次小節以降で頻出するBaker-Campbell-Hausdorffの公式を示しておこう．
     Baker-Campbell-Hausdorffの公式は，
     \begin{align}
-      \e^{\hat{A}}\hat{B}\e^{-\hat{A}} = B + \qty[\hat{A}, \hat{B}] + \frac{1}{2!}\qty[\hat{A}, \qty[\hat{A}, \hat{B}]] + \cdots
+      \e^{\hat{A}}\hat{B}\e^{-\hat{A}} = \hat{B} + \qty[\hat{A}, \hat{B}] + \frac{1}{2!}\qty[\hat{A}, \qty[\hat{A}, \hat{B}]] + \cdots
     \end{align}
     なる式である．
     \begin{proof}
@@ -276,8 +276,8 @@
       と書ける．
       さて，
       \begin{align}
-        \dv{f}{x} &= \hat{A}\e^{t\hat{A}}B\e^{-t\hat{A}} - \e^{t\hat{A}}\hat{B}A\e^{-t\hat{A}} \\ 
-        &= \e^{t\hat{A}}\hat{A}B\e^{-t\hat{A}} - \e^{t\hat{A}}\hat{B}A\e^{-t\hat{A}} \\ 
+        \dv{f}{x} &= \hat{A}\e^{t\hat{A}}\hat{B}\e^{-t\hat{A}} - \e^{t\hat{A}}\hat{B}\hat{A}\e^{-t\hat{A}} \\ 
+        &= \e^{t\hat{A}}\hat{A}\hat{B}\e^{-t\hat{A}} - \e^{t\hat{A}}\hat{B}\hat{A}\e^{-t\hat{A}} \\ 
         &= \e^{t\hat{A}}\qty(\hat{A}\hat{B} - \hat{B}\hat{A})\e^{-t\hat{A}} \\ 
         &= \e^{t\hat{A}}\qty[\hat{A}, \hat{B}]\e^{-t\hat{A}}\label{1st-diff-bch}
       \end{align}
@@ -295,17 +295,17 @@
       である．
       $t = 1$とすれば，
       \begin{align}
-        \e^{\hat{A}}\hat{B}\e^{\hat{A}} = B + \qty[\hat{A}, \hat{B}] + \frac{1}{2!}\qty[\hat{A}, \qty[\hat{A}, \hat{B}]] + \cdots
+        \e^{\hat{A}}\hat{B}\e^{\hat{A}} = \hat{B} + \qty[\hat{A}, \hat{B}] + \frac{1}{2!}\qty[\hat{A}, \qty[\hat{A}, \hat{B}]] + \cdots
       \end{align}
       となる．
     \end{proof}
     また，
     % https://www2.yukawa.kyoto-u.ac.jp/~akio.tomiya/filebox/Campbell-Baker-Hausdorff.pdf
     % \begin{align}
-      
+    WIP
     % \end{align}
     \begin{align}
-      \e^{\hat{A}}\hat{B}\
+      \e^{\hat{A}}\hat{B}
     \end{align}
   \subsection{ビームスプリッタハミルトニアン}
     ビームスプリッタ行列を再び考えよう．
