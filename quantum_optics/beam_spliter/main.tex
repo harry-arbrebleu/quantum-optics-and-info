@@ -355,9 +355,10 @@
         &= \hat{P}_1t + \hat{P}_2t^2 + \hat{P}_3t^3 + \cdots
       \end{align}
       と定義する．
-      $\log (1 + x)$は$x = 0$のまわりで，
+      $h(x) \coloneqq \log (1 + x)$は$x = 0$のまわりで，
       \begin{align}
-        \log(1 + x) &= \qty(\log(1 + x))\eval_{x = 0} + \frac{1}{1!}\qty(\dv{x}\log(1 + x))\eval_{x = 0}x + \frac{1}{2!}\qty(\dv[2]{x}\log(1 + x))\eval_{x = 0}x^2 + \frac{1}{3!}\qty(\dv[3]{x}\log(1 + x))\eval_{x = 0}x^3 + \cdots \\ 
+        h(x) &= h(0) + \frac{1}{1!}\qty(\dv{x}h(x)\eval_{x = 0})x + \frac{1}{2!}\qty(\dv[2]{x}h(x)\eval_{x = 0})x^2 + \frac{1}{3!}\qty(\dv[3]{x}h(x)\eval_{x = 0})x^3 + \cdots \\ 
+        &= 0 + \frac{1}{1!}\frac{1}{1 + 0}x + \frac{1}{2!}\qty(-\frac{1}{(1 + 0)^2})x^2 + \frac{1}{3!}\qty(\frac{2}{(1 + 0)^3})x^3 + \cdots
         &= x - \frac{x^2}{2} + \frac{x^3}{3} + \cdots
       \end{align}
       であることと，$t \to 0$で$F(t) \to 0$であることを用いて$g(t)$を$t = 0$の周りでTaylor展開すると，
