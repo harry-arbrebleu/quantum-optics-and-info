@@ -1,0 +1,149 @@
+\documentclass{report}
+\input{../../head.tex}
+\begin{document}
+  ユニタリ行列は一般に，
+  \begin{align}
+    U = \e^{\i\Lambda/2}
+    \mqty(
+      \e^{\i\Psi/2} & 0 \\ 
+      0 & \e^{-\i\Psi/2}
+    )
+    \mqty(
+      \cos(\Theta / 2) & \sin(\Theta / 2) \\ 
+      -\sin(\Theta / 2) & \cos(\Theta / 2)
+    )\mqty(
+      \e^{\i\Phi/2} & 0 \\ 
+      0 & \e^{-\i\Phi/2}
+    )
+  \end{align}
+  と分解できる．
+  具体的に$U$を計算すると，
+  \begin{align}
+    U &= \e^{\i\Lambda/2}
+    \mqty(
+      \e^{\i\Psi/2} & 0 \\ 
+      0 & \e^{-\i\Psi/2}
+    )
+    \mqty(
+      \cos(\Theta / 2) & \sin(\Theta / 2) \\ 
+      -\sin(\Theta / 2) & \cos(\Theta / 2)
+    )\mqty(
+      \e^{\i\Phi/2} & 0 \\ 
+      0 & \e^{-\i\Phi/2}
+    ) \\ 
+    &= \e^{\i\Lambda/2}\mqty(
+      \e^{\i\Psi/2}\cos(\Theta / 2) & \e^{\i\Psi/2}\sin(\Theta / 2) \\ 
+      -\e^{-\i\Psi/2}\sin(\Theta / 2) & \e^{-\i\Psi/2}\cos(\Theta / 2)
+    )\mqty(
+      \e^{\i\Phi/2} & 0 \\ 
+      0 & \e^{-\i\Phi/2}
+    ) \\ 
+    &= \e^{\i\Lambda/2}\mqty(
+      \e^{\i(\Psi + \Phi) / 2}\cos(\Theta / 2) & \e^{\i(\Psi - \Phi) / 2}\sin(\Theta / 2) \\ 
+      -\e^{-\i(\Psi - \Phi) / 2}\sin(\Theta / 2) & \e^{-\i(\Psi + \Phi) / 2}\cos(\Theta / 2)
+    )\label{unitary-representation}
+  \end{align} 
+  であり，$\alpha = \Psi + \Phi$，$\beta = \Psi - \Phi$とすると，
+  \begin{align}
+    U &= \e^{\i\Lambda/2}\mqty(
+      \e^{\i\alpha / 2}\cos(\Theta / 2) & \e^{\i\beta / 2}\sin(\Theta / 2) \\ 
+      -\e^{-\i\beta / 2}\sin(\Theta / 2) & \e^{-\i\alpha / 2}\cos(\Theta / 2)
+    ) \\ 
+    &= \mqty(
+      \e^{\i(\Lambda + \alpha) / 2}\cos(\Theta / 2) & \e^{\i(\Lambda + \beta) / 2}\sin(\Theta / 2) \\ 
+      -\e^{\i(\Lambda - \beta) / 2}\sin(\Theta / 2) & \e^{\i(\Lambda - \alpha) / 2}\cos(\Theta / 2)
+    ) 
+  \end{align}
+  と書ける．
+  \begin{proof}
+    任意$2\times 2$の行列は，実数$r_{ij}$と$\theta_{ij}$を用いて，
+    \begin{align}
+      M = \mqty(
+        r_{11}\e^{\i\theta_{11}} & r_{12}\e^{\i\theta_{12}} \\ 
+        r_{21}\e^{\i\theta_{21}} & r_{22}\e^{\i\theta_{22}} \\ 
+      )
+    \end{align}
+    と書けて，
+    \begin{align}
+      M^{\dag}M &= \mqty(
+        r_{11}\e^{-\i\theta_{11}} & r_{21}\e^{-\i\theta_{21}} \\ 
+        r_{12}\e^{-\i\theta_{12}} & r_{22}\e^{-\i\theta_{22}} \\ 
+      )\mqty(
+        r_{11}\e^{\i\theta_{11}} & r_{12}\e^{\i\theta_{12}} \\ 
+        r_{21}\e^{\i\theta_{21}} & r_{22}\e^{\i\theta_{22}} \\ 
+      ) \\ 
+      &= \mqty(
+        r_{11}^2 + r_{21}^2 & r_{11}r_{12}\e^{-\i(\theta_{11} - \theta_{12})} + r_{21}r_{22}\e^{-\i(\theta_{21} - \theta_{22})} \\ 
+        r_{11}r_{12}\e^{\i(\theta_{11} - \theta_{12})} + r_{21}r_{22}\e^{\i(\theta_{21} - \theta_{22})} & r_{12}^2 + r_{22}^2 \\ 
+      ) \\ 
+      MM^{\dag} &= \mqty(
+        r_{11}\e^{\i\theta_{11}} & r_{12}\e^{\i\theta_{12}} \\ 
+        r_{21}\e^{\i\theta_{21}} & r_{22}\e^{\i\theta_{22}} \\ 
+      )\mqty(
+        r_{11}\e^{-\i\theta_{11}} & r_{21}\e^{-\i\theta_{21}} \\ 
+        r_{12}\e^{-\i\theta_{12}} & r_{22}\e^{-\i\theta_{22}} \\ 
+      ) \\ 
+      &= \mqty(
+        r_{11}^2 + r_{12}^2 & r_{11}r_{21}\e^{\i(\theta_{11} - \theta_{21})} + r_{11}r_{22}\e^{\i(\theta_{12} - \theta_{22})} \\ 
+        r_{11}r_{21}\e^{-\i(\theta_{11} - \theta_{21})} + r_{12}r_{22}\e^{-\i(\theta_{12} - \theta_{22})} & r_{21}^2 + r_{22}^2 \\ 
+      )
+    \end{align}
+    となる．$M$がユニタリ行列であることの必要十分条件は，
+    \begin{align}
+      r_{11}^2 + r_{21}^2 = 1 \label{r11-r21}\\ 
+      r_{12}^2 + r_{22}^2 = 1 \label{r12-r22}\\ 
+      r_{11}^2 + r_{12}^2 = 1 \label{r11-r12}\\ 
+      r_{21}^2 + r_{22}^2 = 1 \label{r21-r22}\\ 
+      r_{11}r_{12}\e^{\i(\theta_{11} - \theta_{12})} + r_{21}r_{22}\e^{\i(\theta_{21} - \theta_{22})} = 0 \label{angle-1}\\ 
+      r_{11}r_{21}\e^{\i(\theta_{11} - \theta_{21})} + r_{11}r_{22}\e^{\i(\theta_{12} - \theta_{22})} = 0 \label{angle-2}
+    \end{align}
+    である．$M^{\dag}M$や$MM^{\dag}$の非対角成分は複素共役になっていることに注意する．
+    \refe{r11-r21}から\refe{r21-r22}を満たすような$r_{ij}$の組は，実数$\Theta$を用いて，
+    \begin{align}
+      r_{11} = r_{22} = \cos(\Theta / 2) \\ 
+      r_{12} = -r_{21} = \sin(\Theta / 2)
+    \end{align}
+    なるものである．
+    また，これらの$r_{ij}$の値を\refe{angle-1}と\refe{angle-2}に代入すると，
+    \begin{align}
+      \e^{\i(\theta_{11} - \theta_{12})} - \e^{\i(\theta_{21} - \theta_{22})} = 0 \\ 
+      -\e^{\i(\theta_{11} - \theta_{21})} + \e^{\i(\theta_{12} - \theta_{22})} = 0
+    \end{align}
+    が成立する．
+    \begin{align}
+      \Phi = \theta_{11} - \theta_{12} = \theta_{21} - \theta_{22} \\ 
+      \Psi = \theta_{11} - \theta_{21} = \theta_{12} - \theta_{22} \\ 
+    \end{align}
+    とすると，
+    \begin{align}
+      \theta_{11} = \frac{\Lambda + \Psi + \Phi}{2} \\ 
+      \theta_{12} = \frac{\Lambda + \Psi - \Phi}{2} \\ 
+      \theta_{21} = \frac{\Lambda - \Psi + \Phi}{2} \\ 
+      \theta_{22} = \frac{\Lambda - \Psi - \Phi}{2}
+    \end{align}
+    となり，\refe{unitary-representation}を得る．
+    つまり，任意のユニタリ行列は\refe{unitary-representation}で書けることが示された．
+  \end{proof}
+  実際に\refe{unitary-representation}がユニタリ行列であることを確かめる．
+  \begin{align}
+    U^{\dag}U &= \e^{-\i\Lambda/2}\mqty(
+      \e^{-\i\alpha / 2}\cos(\Theta / 2) & -\e^{\i\beta / 2}\sin(\Theta / 2) \\ 
+      \e^{-\i\beta / 2}\sin(\Theta / 2) & \e^{\i\alpha / 2}\cos(\Theta / 2)
+    )
+    \e^{\i\Lambda/2}\mqty(
+      \e^{\i\alpha / 2}\cos(\Theta / 2) & \e^{\i\beta / 2}\sin(\Theta / 2) \\ 
+      -\e^{-\i\beta / 2}\sin(\Theta / 2) & \e^{-\i\alpha / 2}\cos(\Theta / 2)
+    )
+    = \mqty(1 & 0 \\ 0 & 1) \\ 
+    UU^{\dag} &= \e^{\i\Lambda/2}\mqty(
+      \e^{\i\alpha / 2}\cos(\Theta / 2) & \e^{\i\beta / 2}\sin(\Theta / 2) \\ 
+      -\e^{-\i\beta / 2}\sin(\Theta / 2) & \e^{-\i\alpha / 2}\cos(\Theta / 2)
+    )
+    \e^{-\i\Lambda/2}\mqty(
+      \e^{-\i\alpha / 2}\cos(\Theta / 2) & -\e^{\i\beta / 2}\sin(\Theta / 2) \\ 
+      \e^{-\i\beta / 2}\sin(\Theta / 2) & \e^{\i\alpha / 2}\cos(\Theta / 2)
+    )
+    = \mqty(1 & 0 \\ 0 & 1)
+  \end{align}
+  となり，$U$はユニタリ行列であることが分かる．
+\end{document}

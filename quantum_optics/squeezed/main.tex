@@ -1,6 +1,85 @@
 \documentclass{report}
 \input{../../head.tex}
 \begin{document}
-  \subsection{縮退パラメトリック過程のハミルトニアンによる時間発展}
-  \subsection{物理量の平均値・分散}
+  本節では，スクイーズド状態$\ket{\beta}_{\r{g}}$について議論する．
+  スクイーズド状態は，消滅演算子$\hat{a}$を変換して得られる$\hat{b}$の固有状態であり，その変換は，
+  \begin{align}
+    \hat{b} \coloneqq \mu\hat{a} + \nu\hat{a}^{\dag},\ \abs{\mu}^2 - \abs{\nu} = 1
+  \end{align}
+  と定義され，Bogoliubov変換と呼ばれる．
+  縮退パラメトリック過程は，電場の2乗に比例して分極が起こって，その比例係数が$\chi^{(2)}$である非線型結晶に対して，
+  周波数$\omega$の入射電場$E_{\r{in}}$と$2\omega$の強い電場$E_3$を入射して，
+  2つの電場の差周波$2\omega - \omega = \omega$の周波数の電場$E_{\r{out}}$が放出される過程である．
+  $E_{\r{in}}$と$E_{\r{out}}$の間には，
+  \begin{align}
+    E_{\r{out}} = E_{\r{in}}\cosh r - E_{\r{in}}^*\sinh r \label{spdc-classical}
+  \end{align}
+  なる関係がある．
+  ただし，$r$は，
+  \begin{align}
+    r \coloneqq \frac{z}{2c}\cdot\frac{\omega}{n}
+  \end{align}
+  と定義され，$z$は非線型結晶の長さ，$c$は光速，$n$は非線型結晶の屈折率である．
+  また，$\cosh r$と$\sinh r$は，
+  \begin{align}
+    \cosh r &\coloneqq \frac{\e^r + \e^{-r}}{2} \\ 
+    \sinh r &\coloneqq \frac{\e^r - \e^{-r}}{2} \\ 
+  \end{align}
+  と定義されていて，
+  \begin{align}
+    \abs{\cosh r}^2 - \abs{-\sinh r}^2 &= \abs{\frac{\e^r + \e^{-r}}{2}}^2 - \abs{-\frac{\e^r - \e^{-r}}{2}}^2 \\ 
+    &= \frac{\e^{2r} + 2 + \e^{-2r}}{4} - \frac{\e^{2r} - 2 + \e^{-2r}}{4} \\ 
+    &= 1 \label{cosh-sinh-relation}
+  \end{align}
+  なる関係がある．
+  さて，\refe{spdc-classical}を量子化すると，$\hat{a}$が電場の振幅に対応するのだから，
+  出力電場の振幅に対応する物理量を$\hat{b}$とすれば，
+  \begin{align}
+    \hat{b} = \hat{a}\cosh r - \hat{a}^{\dag}\sinh r
+  \end{align}
+  となる．
+  \subsection{縮退パラメトリック過程のハミルトニアンによる消滅演算子の時間発展}
+    Heisenber描像において$\hat{a}$を$\hat{b}$に変換するものが，縮退パラメトリック変換である．
+    縮退パラメトリック変換のハミルトニアン$\hat{H}_{\r{para}}$を，
+    \begin{align}
+      \hat{H}_{\r{para}} \coloneqq \i\frac{\hbar}{t}\frac{r}{2}\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2)
+    \end{align}
+    と定義する．
+    $\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2)$と$\hat{a}$や，$\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2)$と$\hat{a}^{\dag}$との交換関係は，
+    \begin{align}
+      \qty[\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2), \hat{a}] &= \qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2)\hat{a} - \hat{a}\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2) \\ 
+      &= \hat{a}\qty(\hat{a}^{\dag})^2 - \qty(\hat{a}^{\dag})^2\hat{a} \\ 
+      &= \qty(\hat{a}^{\dag}\hat{a} + 1)\hat{a}^{\dag} - \qty(\hat{a}^{\dag})^2\hat{a} \\ 
+      &= \hat{a}^{\dag}\hat{a}\hat{a}^{\dag} + \hat{a}^{\dag} - \qty(\hat{a}^{\dag})^2\hat{a} \\ 
+      &= \hat{a}^{\dag}\qty(\hat{a}^{\dag}\hat{a} + 1) + \hat{a}^{\dag} - \qty(\hat{a}^{\dag})^2\hat{a} \\ 
+      &= 2\hat{a}^{\dag} \\ 
+      \qty[\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2), \hat{a}^{\dag}] &= \qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2)\hat{a}^{\dag} - \hat{a}^{\dag}\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2) \\ 
+      &= \hat{a}^2\hat{a}^{\dag} - \hat{a}^{\dag}\hat{a}^2 \\ 
+      &= \hat{a}\qty(\hat{a}^{\dag}\hat{a} + 1) - \hat{a}^{\dag}\hat{a}^2 \\ 
+      &= \hat{a}\hat{a}^{\dag}\hat{a} + \hat{a} - \hat{a}^{\dag}\hat{a}^2 \\ 
+      &= \qty(\hat{a}^{\dag}\hat{a} + 1)\hat{a} + \hat{a} - \hat{a}^{\dag}\hat{a}^2 \\ 
+      &= 2\hat{a}
+    \end{align}
+    となることを用いると，$\hat{a}$の時間発展は1つ目のBaker-Campbell-Hausdorffの公式を用いて，この系における消滅演算子$\hat{a}$の時間発展は，
+    \begin{align}
+      \exp\qty(\i\frac{\hat{H}_{\r{para}}}{\hbar}t)\hat{a}\exp\qty(-\i\frac{\hat{H}_{\r{para}}}{\hbar}t) &= \exp\qty(-\frac{r}{2}\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2))\hat{a}\exp\qty(\frac{r}{2}\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2)) \\ 
+      &= \hat{a} + \qty[-\frac{r}{2}\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2), \hat{a}] + \frac{1}{2!}\qty[-\frac{r}{2}\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2), \qty[-\frac{r}{2}\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2), \hat{a}]] + \cdots \\ 
+      &= \hat{a} + \frac{1}{1!}\qty(-\frac{r}{2})^1\cdot 2^1\hat{a}^{\dag} + \frac{1}{2!}\qty(-\frac{r}{2})^2\cdot 2^2\hat{a} + \frac{1}{3!}\qty(-\frac{r}{2})^3\cdot 2^3\hat{a}^{\dag} + \frac{1}{4!}\qty(-\frac{r}{2})^4\cdot 2^4\hat{a} + \cdots \\ 
+      &= \hat{a}\qty(1 + \frac{r^2}{2!} + \frac{r^4}{4!} + \cdots) - \hat{a}^{\dag}\qty(\frac{r^1}{1!} + \frac{r^3}{3!} + \frac{r^5}{5!} + \cdots) \\ 
+      &= \hat{a}\cosh r - \hat{a}^{\dag}\sinh r
+    \end{align}
+    となる．
+    \refe{cosh-sinh-relation}で示した関係式より，縮退パラメトリック変換はBogoliubov変換である．
+    計算の途中で$\cosh r$と$\sinh r$が，
+    \begin{align}
+      \cosh r &= \frac{\e^r + \e^{-r}}{2} \\ 
+      &= \frac{1}{2}\qty{\qty(1 + \frac{r}{1!} + \frac{r^2}{2!} + \cdots) + \qty(1 + \frac{\qty(-r)}{1!} + \frac{\qty(-r)^2}{2!} + \cdots)} \\ 
+      &= 1 + \frac{r^2}{2!} + \frac{r^4}{4!} + \cdots \\ 
+      \sinh r &= \frac{\e^r - \e^{-r}}{2} \\ 
+      &= \frac{1}{2}\qty{\qty(1 + \frac{r}{1!} + \frac{r^2}{2!} + \cdots) - \qty(1 + \frac{\qty(-r)}{1!} + \frac{\qty(-r)^2}{2!} + \cdots)} \\ 
+      &= \frac{r^1}{1!} + \frac{r^3}{3!} + \frac{r^5}{5!} + \cdots \\
+    \end{align}
+    となることを用いた．
+  \subsection{真空状態とスクイーズされた真空場の関係}
+  \subsection{位置と運動量の平均値・分散}
 \end{document}
