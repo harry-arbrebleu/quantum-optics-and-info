@@ -82,7 +82,7 @@
       となる．
       $t = 0$周りで$f(t)$をTaylor展開すると，
       \begin{align}
-        f(t) &= f(0) + \frac{1}{1!}\dv{t}f(t)\eval_{t = 0}t + \frac{1}{2!}\dv[2]{t}f(t)\eval_{t = 0}t^2 + \frac{1}{3!}\dv[3]{t}f(t)\eval_{t = 0}t^3 + \cdots \\ 
+        f(t) &= f(0) + \frac{1}{1!}\qty(\dv{t}f(t)\eval_{t = 0})t + \frac{1}{2!}\qty(\dv[2]{t}f(t)\eval_{t = 0})t^2 + \frac{1}{3!}\qty(\dv[3]{t}f(t)\eval_{t = 0})t^3 + \cdots \\ 
         &= 1 + \frac{1}{1!}\qty(\hat{A} + \hat{B})t + \frac{1}{2!}\qty{\qty(\hat{A} + \hat{B})^2 + \qty[\hat{A}, \hat{B}]}t^2 + \frac{1}{3!}\qty{\qty(\hat{A} + \hat{B})^3 + \hat{A}\qty[\hat{A}, \hat{B}] + \qty[\hat{A}^2, \hat{B}] + \qty[\hat{A}, \hat{B}^2] + \qty[\hat{A}, \hat{B}]\hat{B}}t^3 + \cdots \\ 
         &= 1 + \hat{P}_1t + \hat{P}_2t^2 + \hat{P}_3t^3 + \cdots \\ 
       \end{align}
