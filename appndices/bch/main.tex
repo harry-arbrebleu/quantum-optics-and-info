@@ -14,7 +14,7 @@
       と定義する．
       $f(t)$を$t = 0$の周りで展開することを考えると，
       \begin{align}
-        f(t) = f(0) + \eval{\dv{f}{x}}_{t = 0}t + \frac{1}{2!}\eval{\dv[2]{f}{x}}_{t = 0} t^2 + \cdots\label{taylor-bch}
+        f(t) = f(0) + \frac{1}{1!}\qty(\eval{\dv{f}{x}}_{t = 0})t + \frac{1}{2!}\qty(\eval{\dv[2]{f}{x}}_{t = 0}) t^2 + \cdots \label{taylor-bch}
       \end{align}
       と書ける．
       さて，
@@ -104,7 +104,7 @@
       \begin{align}
         h(x) &= h(0) + \frac{1}{1!}\qty(\dv{x}h(x)\eval_{x = 0})x + \frac{1}{2!}\qty(\dv[2]{x}h(x)\eval_{x = 0})x^2 + \frac{1}{3!}\qty(\dv[3]{x}h(x)\eval_{x = 0})x^3 + \cdots \\ 
         &= 0 + \frac{1}{1!}\frac{1}{1 + 0}x + \frac{1}{2!}\qty(-\frac{1}{(1 + 0)^2})x^2 + \frac{1}{3!}\qty(\frac{2}{(1 + 0)^3})x^3 + \cdots \\ 
-        &= x - \frac{x^2}{2} + \frac{x^3}{3} + \cdots
+        &= x - \frac{x^2}{2} + \frac{x^3}{3} - \cdots
       \end{align}
       であることと，$t \to 0$で$F(t) \to 0$であることを用いて$g(t)$を$t = 0$の周りでTaylor展開すると，
       \begin{align}
@@ -145,8 +145,7 @@
       となる．
       特に，
       \begin{align}
-        \qty[\qty(\hat{A} - \hat{B}), \qty[\hat{A}, \hat{B}]] = 0 \\ 
-        \iff \qty[\hat{A}, \qty[\hat{A}, \hat{B}]] = \qty[\hat{B}, \qty[\hat{A}, \hat{B}]] = 0
+        \qty[\hat{A}, \qty[\hat{A}, \hat{B}]] = \qty[\hat{B}, \qty[\hat{A}, \hat{B}]] = 0
       \end{align}
       のときは，
       \begin{align}
