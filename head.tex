@@ -1,5 +1,6 @@
 \usepackage{luatexja} % LuaTeXで日本語を使うためのパッケージ
 \usepackage{luatexja-fontspec} % LuaTeX用の日本語フォント設定
+% lualatex main && upmendex -r -c -s main.ist -g main && lualatex main  
 
 % --- 数学関連 ---
 \usepackage{amsmath, amssymb, amsfonts, mathtools, bm, amsthm} % 基本的な数学パッケージ
@@ -35,7 +36,8 @@
 \usepackage{multicol} % 複数段組
 \usepackage{comment} % コメントアウトの拡張
 \usepackage{siunitx} % 単位の表記
-\usepackage{docmute}
+\usepackage{docmute, needspace}
+\usepackage{makeidx}
 % \usepackage{appendix}
 % --- tcolorboxとtikzの設定 ---
 \tcbuselibrary{theorems, breakable} % 定理のボックスと改ページ設定
@@ -80,33 +82,6 @@
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}} % センター揃えのカラム
 \DeclareMathOperator{\diag}{diag}
 \everymath{\displaystyle} % 数式のスタイル
-\newcommand{\inner}[2]{\left\langle #1, #2 \right\rangle}
-\renewcommand{\figurename}{図}
-\renewcommand{\i}{\mathrm{i}} % 複素数単位i
-\renewcommand{\laplacian}{\grad^2} % ラプラシアンの記号
-\renewcommand{\thesubfigure}{(\alph{subfigure})} % サブ図の番号形式
-\newcommand{\m}[3]{\multicolumn{#1}{#2}{#3}} % マルチカラムのショートカット
-\renewcommand{\r}[1]{\mathrm{#1}} % mathrmのショートカット
-\newcommand{\e}{\mathrm{e}} % 自然対数の底e
-\newcommand{\Ef}{E_{\mathrm{F}}} % フェルミエネルギー
-\renewcommand{\c}{\si{\degreeCelsius}} % 摂氏記号
-\renewcommand{\d}{\r{d}} % d記号
-\renewcommand{\t}[1]{\texttt{#1}} % タイプライタフォント
-\newcommand{\kb}{k_{\mathrm{B}}} % ボルツマン定数
-% \renewcommand{\phi}{\varphi} % ϕをφに変更
-\renewcommand{\epsilon}{\varepsilon}
-\newcommand{\fullref}[1]{\textbf{\ref{#1} \nameref{#1}}}
-\newcommand{\reff}[1]{\textbf{図\ref{#1}}} % 図参照のショートカット
-\newcommand{\reft}[1]{\textbf{表\ref{#1}}} % 表参照のショートカット
-\newcommand{\refe}[1]{\textbf{式\eqref{#1}}} % 式参照のショートカット
-\newcommand{\refp}[1]{\textbf{コード\ref{#1}}} % コード参照のショートカット
-\renewcommand{\lstlistingname}{コード} % コードリストの名前
-\renewcommand{\theequation}{\thesection.\arabic{equation}} % 式番号の形式
-\renewcommand{\footrulewidth}{0.4pt} % フッターの線
-\newcommand{\mar}[1]{\textcircled{\scriptsize #1}} % 丸囲み文字
-\newcommand{\combination}[2]{{}_{#1} \mathrm{C}_{#2}} % 組み合わせ
-\newcommand{\thline}{\noalign{\hrule height 0.1pt}} % 細い横線
-\newcommand{\bhline}{\noalign{\hrule height 1.5pt}} % 太い横線
 
 % --- カスタム色定義 ---
 \definecolor{burgundy}{rgb}{0.5, 0.0, 0.13} % バーガンディ色
@@ -186,6 +161,34 @@
 \makeatletter
 \@addtoreset{equation}{section} % セクwションごとに式番号をリセット
 \makeatother
+
+\newcommand{\inner}[2]{\left\langle #1, #2 \right\rangle}
+\renewcommand{\figurename}{図}
+\renewcommand{\i}{\mathrm{i}} % 複素数単位i
+\renewcommand{\laplacian}{\grad^2} % ラプラシアンの記号
+\renewcommand{\thesubfigure}{(\alph{subfigure})} % サブ図の番号形式
+\newcommand{\m}[3]{\multicolumn{#1}{#2}{#3}} % マルチカラムのショートカット
+\renewcommand{\r}[1]{\mathrm{#1}} % mathrmのショートカット
+\newcommand{\e}{\mathrm{e}} % 自然対数の底e
+\newcommand{\Ef}{E_{\mathrm{F}}} % フェルミエネルギー
+\renewcommand{\c}{\si{\degreeCelsius}} % 摂氏記号
+\renewcommand{\d}{\r{d}} % d記号
+\renewcommand{\t}[1]{\texttt{#1}} % タイプライタフォント
+\newcommand{\kb}{k_{\mathrm{B}}} % ボルツマン定数
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\fullref}[1]{\textbf{\ref{#1} \nameref{#1}}}
+\newcommand{\reff}[1]{\textbf{図\ref{#1}}} % 図参照のショートカット
+\newcommand{\reft}[1]{\textbf{表\ref{#1}}} % 表参照のショートカット
+\newcommand{\refe}[1]{\textbf{式\eqref{#1}}} % 式参照のショートカット
+\newcommand{\refp}[1]{\textbf{コード\ref{#1}}} % コード参照のショートカット
+\renewcommand{\lstlistingname}{コード} % コードリストの名前
+\renewcommand{\theequation}{\thesection.\arabic{equation}} % 式番号の形式
+\renewcommand{\footrulewidth}{0.4pt} % フッターの線
+\newcommand{\mar}[1]{\textcircled{\scriptsize #1}} % 丸囲み文字
+\newcommand{\combination}[2]{{}_{#1} \mathrm{C}_{#2}} % 組み合わせ
+\newcommand{\thline}{\noalign{\hrule height 0.1pt}} % 細い横線
+\newcommand{\bhline}{\noalign{\hrule height 1.5pt}} % 太い横線
+\renewcommand{\appendixname}{付録}
 
 % --- メタ情報 ---
 \title{量子光学・量子情報科学ノート}

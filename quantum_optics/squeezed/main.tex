@@ -42,18 +42,18 @@
     Heisenber描像において$\hat{a}$を$\hat{b}$に変換するものが，縮退パラメトリック変換である．
     縮退パラメトリック変換のハミルトニアン$\hat{H}_{\r{para}}$を，
     \begin{align}
-      \hat{H}_{\r{para}} \coloneqq \i\frac{\hbar}{t}\frac{r}{2}\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2)
+      \hat{H}_{\r{para}} \coloneqq \i\frac{\hbar}{t}\frac{r}{2}\qty(\hat{a}^2 - \hat{a}^{\dag 2})
     \end{align}
     と定義する．
-    $\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2)$と$\hat{a}$や，$\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2)$と$\hat{a}^{\dag}$との交換関係は，
+    $\qty(\hat{a}^2 - \hat{a}^{\dag 2})$と$\hat{a}$や，$\qty(\hat{a}^2 - \hat{a}^{\dag 2})$と$\hat{a}^{\dag}$との交換関係は，
     \begin{align}
-      \qty[\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2), \hat{a}] &= \qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2)\hat{a} - \hat{a}\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2) \\ 
-      &= \hat{a}\qty(\hat{a}^{\dag})^2 - \qty(\hat{a}^{\dag})^2\hat{a} \\ 
-      &= \qty(\hat{a}^{\dag}\hat{a} + 1)\hat{a}^{\dag} - \qty(\hat{a}^{\dag})^2\hat{a} \\ 
-      &= \hat{a}^{\dag}\hat{a}\hat{a}^{\dag} + \hat{a}^{\dag} - \qty(\hat{a}^{\dag})^2\hat{a} \\ 
-      &= \hat{a}^{\dag}\qty(\hat{a}^{\dag}\hat{a} + 1) + \hat{a}^{\dag} - \qty(\hat{a}^{\dag})^2\hat{a} \\ 
+      \qty[\qty(\hat{a}^2 - \hat{a}^{\dag 2}), \hat{a}] &= \qty(\hat{a}^2 - \hat{a}^{\dag 2})\hat{a} - \hat{a}\qty(\hat{a}^2 - \hat{a}^{\dag 2}) \\ 
+      &= \hat{a}\hat{a}^{\dag 2} - \hat{a}^{\dag 2}\hat{a} \\ 
+      &= \qty(\hat{a}^{\dag}\hat{a} + 1)\hat{a}^{\dag} - \hat{a}^{\dag 2}\hat{a} \\ 
+      &= \hat{a}^{\dag}\hat{a}\hat{a}^{\dag} + \hat{a}^{\dag} - \hat{a}^{\dag 2}\hat{a} \\ 
+      &= \hat{a}^{\dag}\qty(\hat{a}^{\dag}\hat{a} + 1) + \hat{a}^{\dag} - \hat{a}^{\dag 2}\hat{a} \\ 
       &= 2\hat{a}^{\dag} \\ 
-      \qty[\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2), \hat{a}^{\dag}] &= \qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2)\hat{a}^{\dag} - \hat{a}^{\dag}\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2) \\ 
+      \qty[\qty(\hat{a}^2 - \hat{a}^{\dag 2}), \hat{a}^{\dag}] &= \qty(\hat{a}^2 - \hat{a}^{\dag 2})\hat{a}^{\dag} - \hat{a}^{\dag}\qty(\hat{a}^2 - \hat{a}^{\dag 2}) \\ 
       &= \hat{a}^2\hat{a}^{\dag} - \hat{a}^{\dag}\hat{a}^2 \\ 
       &= \hat{a}\qty(\hat{a}^{\dag}\hat{a} + 1) - \hat{a}^{\dag}\hat{a}^2 \\ 
       &= \hat{a}\hat{a}^{\dag}\hat{a} + \hat{a} - \hat{a}^{\dag}\hat{a}^2 \\ 
@@ -62,8 +62,8 @@
     \end{align}
     となることを用いると，$\hat{a}$の時間発展は1つ目のBaker-Campbell-Hausdorffの公式を用いて，この系における消滅演算子$\hat{a}$の時間発展は，
     \begin{align}
-      \exp\qty(\i\frac{\hat{H}_{\r{para}}}{\hbar}t)\hat{a}\exp\qty(-\i\frac{\hat{H}_{\r{para}}}{\hbar}t) &= \exp\qty(-\frac{r}{2}\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2))\hat{a}\exp\qty(\frac{r}{2}\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2)) \\ 
-      &= \hat{a} + \qty[-\frac{r}{2}\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2), \hat{a}] + \frac{1}{2!}\qty[-\frac{r}{2}\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2), \qty[-\frac{r}{2}\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2), \hat{a}]] + \cdots \\ 
+      \exp\qty(\i\frac{\hat{H}_{\r{para}}}{\hbar}t)\hat{a}\exp\qty(-\i\frac{\hat{H}_{\r{para}}}{\hbar}t) &= \exp\qty(-\frac{r}{2}\qty(\hat{a}^2 - \hat{a}^{\dag 2}))\hat{a}\exp\qty(\frac{r}{2}\qty(\hat{a}^2 - \hat{a}^{\dag 2})) \\ 
+      &= \hat{a} + \qty[-\frac{r}{2}\qty(\hat{a}^2 - \hat{a}^{\dag 2}), \hat{a}] + \frac{1}{2!}\qty[-\frac{r}{2}\qty(\hat{a}^2 - \hat{a}^{\dag 2}), \qty[-\frac{r}{2}\qty(\hat{a}^2 - \hat{a}^{\dag 2}), \hat{a}]] + \cdots \\ 
       &= \hat{a} + \frac{1}{1!}\qty(-\frac{r}{2})^1\cdot 2^1\hat{a}^{\dag} + \frac{1}{2!}\qty(-\frac{r}{2})^2\cdot 2^2\hat{a} + \frac{1}{3!}\qty(-\frac{r}{2})^3\cdot 2^3\hat{a}^{\dag} + \frac{1}{4!}\qty(-\frac{r}{2})^4\cdot 2^4\hat{a} + \cdots \\ 
       &= \hat{a}\qty(1 + \frac{r^2}{2!} + \frac{r^4}{4!} + \cdots) - \hat{a}^{\dag}\qty(\frac{r^1}{1!} + \frac{r^3}{3!} + \frac{r^5}{5!} + \cdots) \\ 
       &= \hat{a}\cosh r - \hat{a}^{\dag}\sinh r
@@ -82,7 +82,7 @@
     となることを用いた．
     $\hat{a}$を$\hat{b}$に変換するユニタリをスクイーズ演算子$\hat{S}(r)$といい，
     \begin{align}
-      \hat{S}(r) \coloneqq \exp\qty{\frac{r}{2}\qty(\hat{a}^2 - \qty(\hat{a}^{\dag})^2)}
+      \hat{S}(r) \coloneqq \exp\qty{\frac{r}{2}\qty(\hat{a}^2 - \hat{a}^{\dag 2})}
     \end{align}
     と定義する．
   \subsection{真空状態とスクイーズされた真空場の関係}
@@ -90,14 +90,14 @@
     さて，同様に$\hat{b}$と$\hat{b}^{\dag}$の交換関係を調べると，
     \begin{align}
       \qty[\hat{b}, \hat{b}^{\dag}] &= \qty(\mu\hat{a} + \nu\hat{a}^{\dag})\qty(\mu^*\hat{a}^{\dag} + \nu^*\hat{a}) - \qty(\mu^*\hat{a}^{\dag} + \nu^*\hat{a})\qty(\mu\hat{a} + \nu\hat{a}^{\dag}) \\ 
-      &= \qty(\abs{mu}^2 - \abs{\nu}^2)\qty(\hat{a}\hat{a}^{\dag} - \hat{a}^{\dag}\hat{a}) \\ 
+      &= \qty(\abs{\mu}^2 - \abs{\nu}^2)\qty(\hat{a}\hat{a}^{\dag} - \hat{a}^{\dag}\hat{a}) \\ 
       &= 1
     \end{align}
     より，$\hat{a}^{\dag}\hat{a}$の固有状態$\ket{n}$のように$\hat{b}^{\dag}\hat{b}$の固有状態$\ket{m_{\r{g}}}$が存在する．
     また，$\hat{a}$の固有状態$\ket{\alpha}$が存在して$\ket{n}$で展開できるように，$\hat{b}$の固有状態$\ket{\beta}_{\r{g}}$が存在して$\ket{m_{\r{g}}}$で展開できる．
     どちらも展開係数の2乗はPoisson分布になるはずであるから，
     \begin{align}
-      \ket{\beta}_{\r{g}} = \sum_{m_{\r{g}}}\frac{\beta^{m_{\r{g}}}}{\sqrt{m_{\r{g}}}}\exp\qty(-\frac{\abs{\beta^2}}{2})\ket{m_{\r{g}}}
+      \ket{\beta}_{\r{g}} = \sum_{m_{\r{g}}}\frac{\beta_{m_{\r{g}}}}{\sqrt{m_{\r{g}}}}\exp\qty(-\frac{\abs{\beta^2}}{2})\ket{m_{\r{g}}}
     \end{align}
     と展開できる．
     明らかに，
@@ -106,19 +106,64 @@
     \end{align}
     である．
     \par
-    Heisenber描像において$\hat{a}$を$\hat{b}$はユニタリ演算子$\hat{S}(r)$によって変換されたのであった．
+    Heisenberg描像において$\hat{b}$はユニタリ演算子$\hat{S}(r)$によって$\hat{a}$を変換したものであった．
     Schr\"odinger描像では，状態ベクトルに$\hat{S}(r)$を作用させて時間発展を考えることができる．
     個数演算子$\hat{a}^{\dag}\hat{a}$の固有状態の1つである$\ket{0}$を考える．
-    Heisenber描像では，個数演算子は，
+    Heisenberg描像では，個数演算子は，
     \begin{align}
       \hat{S}(r)^{\dag}\hat{a}^{\dag}\hat{a}\hat{S}(r) = \hat{S}(r)^{\dag}\hat{a}^{\dag}\hat{S}(r)\hat{S}(r)^{\dag}\hat{a}\hat{S}(r) = \hat{b}^{\dag}\hat{b}
     \end{align}
     とユニタリ変換されている．
     Schr\"odinger描像では，$\ket{0}$が時間発展して$\ket{m_{\r{g}} = 0}$になるとすれば\refe{bg-mg-relation}より，
     \begin{align}
-      \ket{\beta = 0} = \hat{S}(r)\ket{0}
+      \ket{\beta = 0}_{\r{g}} = \hat{S}(r)\ket{0}
+    \end{align}
+    となる\footnote{ここの計算はわからなかった．}．
+  \subsection{位置と運動量の平均・分散}
+    スクイーズド状態の位置と運動量の平均と分散を考える．
+    スクイーズ演算子によって位置演算子や運動量演算子，また，それらの2乗は，
+    \begin{align}
+      \hat{S}^{\dag}(r)\hat{x}\hat{S}(r) &= \frac{1}{2}\qty(\hat{S}^{\dag}(r)\hat{a}\hat{S}(r) + \hat{S}^{\dag}(r)\hat{a}\hat{S}(r)) \\ 
+      &= \frac{1}{2}\qty(\hat{a}\cosh r - \hat{a}^{\dag}\sinh r + \hat{a}^{\dag}\cosh r - \hat{a}\sinh r) \\ 
+      &= \frac{1}{2}\qty(\cosh r - \sinh r)\qty(\hat{a} + \hat{a}^{\dag}) \\ 
+      &= \frac{1}{2}\e^{-r}\qty(\hat{a} + \hat{a}^{\dag}) \\ 
+      &= \e^{-r}\hat{x} \\ 
+      \hat{S}^{\dag}(r)\hat{x}^2\hat{S}(r) &= \hat{S}^{\dag}\hat{x}\hat{S}(r)\hat{S}^{\dag}(r)\hat{x}\hat{S}(r) \\ 
+      &= \qty[\frac{1}{2}\e^{-r}\qty(\hat{a} + \hat{a}^{\dag})]^2 \\ 
+      &= \frac{1}{4}\e^{-2r}\qty(\hat{a}^2 + \hat{a}^{\dag 2} + \hat{a}\hat{a}^{\dag} + \hat{a}^{\dag}\hat{a}) \\ 
+      \hat{S}^{\dag}(r)\hat{p}\hat{S}(r) &= \frac{1}{2\i}\qty(\hat{S}^{\dag}(r)\hat{a}\hat{S}(r) - \hat{S}^{\dag}(r)\hat{a}\hat{S}(r)) \\ 
+      &= \frac{1}{2\i}\qty(\hat{a}\cosh r - \hat{a}^{\dag}\sinh r - \hat{a}^{\dag}\cosh r + \hat{a}\sinh r) \\ 
+      &= \frac{1}{2\i}\qty(\cosh r + \sinh r)\qty(\hat{a} - \hat{a}^{\dag}) \\ 
+      &= \frac{1}{2\i}\e^{r}\qty(\hat{a} - \hat{a}^{\dag}) \\ 
+      &= \e^{r}\hat{p} \\ 
+      \hat{S}^{\dag}(r)\hat{p}^2\hat{S}(r) &= \hat{S}^{\dag}\hat{p}\hat{S}(r)\hat{S}^{\dag}(r)\hat{p}\hat{S}(r) \\ 
+      &= \qty[\frac{1}{2\i}\e^{r}\qty(\hat{a} - \hat{a}^{\dag})]^2 \\ 
+      &= -\frac{1}{4}\e^{2r}\qty(\hat{a}^2 + \hat{a}^{\dag 2} - \hat{a}\hat{a}^{\dag} - \hat{a}^{\dag}\hat{a})
+    \end{align}
+    と計算されるので，
+    \begin{align}
+      \ev{x} &= {}_{\r{g}}\mel**{\beta = 0}{\hat{x}}{\beta = 0}_{\r{g}} \\ 
+      &= \mel**{0}{\hat{S}^{\dag}(r)\hat{x}\hat{S}(r)}{0} \\ 
+      &= \mel**{0}{\frac{1}{2}\e^{-r}\qty(\hat{a} + \hat{a}^{\dag})}{0} \\ 
+      &= 0 \\ 
+      \ev{x^2} &= {}_{\r{g}}\mel**{\beta = 0}{\hat{x}^2}{\beta = 0}_{\r{g}} \\ 
+      &= \mel**{0}{\hat{S}^{\dag}(r)\hat{x}^2\hat{S}(r)}{0} \\ 
+      &= \mel**{0}{\frac{1}{4}\e^{-2r}\qty(\hat{a}^2 + \hat{a}^{\dag 2} + \hat{a}\hat{a}^{\dag} + \hat{a}^{\dag}\hat{a})}{0} \\ 
+      &= \frac{1}{4}\e^{-2r} \\ 
+      \ev{p} &= {}_{\r{g}}\mel**{\beta = 0}{\hat{p}}{\beta = 0}_{\r{g}} \\ 
+      &= \mel**{0}{\hat{S}^{\dag}(r)\hat{p}\hat{S}(r)}{0} \\ 
+      &= \mel**{0}{\frac{1}{2\i}\e^{r}\qty(\hat{a} - \hat{a}^{\dag})}{0} \\ 
+      &= 0 \\ 
+      \ev{p^2} &= {}_{\r{g}}\mel**{\beta = 0}{\hat{p}^2}{\beta = 0}_{\r{g}} \\ 
+      &= \mel**{0}{\hat{S}^{\dag}(r)\hat{p}^2\hat{S}(r)}{0} \\ 
+      &= \mel**{0}{-\frac{1}{4}\e^{2r}\qty(\hat{a}^2 + \hat{a}^{\dag 2} - \hat{a}\hat{a}^{\dag} - \hat{a}^{\dag}\hat{a})}{0} \\ 
+      &= \frac{1}{4}\e^{2r}
     \end{align}
     となる．
-  \subsection{位置と運動量の平均値・分散}
-    % 位置と運動量
+    ゆえに，スクイーズド状態の揺らぎは，
+    \begin{align}
+      \Delta x_{\r{sq}} &= \sqrt{\ev{x^2} - \ev{x}^2} = \frac{1}{2}\e^{-r} \\ 
+      \Delta p_{\r{sq}} &= \sqrt{\ev{p^2} - \ev{p}^2} = \frac{1}{2}\e^{r} 
+    \end{align}
+    となる．
 \end{document}

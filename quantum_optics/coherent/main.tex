@@ -36,15 +36,17 @@
       \ev{x} &= \mel**{\alpha}{\frac{1}{2}\qty(\hat{a} + \hat{a}^{\dag})}{\alpha} \\ 
       &= \frac{1}{2}\qty(\alpha + \alpha^*) \\ 
       \ev{x^2} &= \mel**{\alpha}{\frac{1}{4}\qty(\hat{a} + \hat{a}^{\dag})^2}{\alpha} \\ 
-      &= \frac{1}{4}\mel**{\alpha}{\hat{a}^2}{\alpha} + \frac{1}{4}\mel**{\alpha}{\hat{a}\hat{a}^{\dag}}{\alpha} + \frac{1}{4}\mel**{\alpha}{\hat{a}^{\dag}\hat{a}}{\alpha} + \frac{1}{4}\mel**{\alpha}{\qty(\hat{a}^{\dag})^2}{\alpha} \\ 
-      &= \frac{1}{4}\alpha^2 + \frac{1}{4}\mel**{\alpha}{\qty(\hat{a}^{\dag}\hat{a} + 1)}{\alpha} + \frac{1}{4}\abs{\alpha}^2 + \frac{1}{4}\qty(\alpha^*)^2 \\ 
+      &= \frac{1}{4}\mel**{\alpha}{\hat{a}^2}{\alpha} + \frac{1}{4}\mel**{\alpha}{\hat{a}\hat{a}^{\dag}}{\alpha} + \frac{1}{4}\mel**{\alpha}{\hat{a}^{\dag}\hat{a}}{\alpha} + \frac{1}{4}\mel**{\alpha}{\hat{a}^{\dag 2}}{\alpha} \\ 
+      &= \frac{1}{4}\alpha^2 + \frac{1}{4}\mel**{\alpha}{\qty(\hat{a}^{\dag}\hat{a} + 1)}{\alpha} + \frac{1}{4}\abs{\alpha}^2 + \frac{1}{4}\alpha^{*2} \\ 
+      &= \frac{1}{4}\alpha^2 + \frac{1}{4}\abs{\alpha}^2 + \frac{1}{4} + \frac{1}{4}\abs{\alpha}^2 + \frac{1}{4}\alpha^{*2} \\ 
       &= \frac{1}{4}\qty(\alpha + \alpha^*)^2 + \frac{1}{4} \\ 
       \ev{p} &= \mel**{\alpha}{\frac{1}{2\i}\qty(\hat{a} - \hat{a}^{\dag})}{\alpha} \\ 
       &= \frac{1}{2\i}\qty(\alpha - \alpha^*) \\ 
       \ev{p^2} &= \mel**{\alpha}{-\frac{1}{4}\qty(\hat{a} - \hat{a}^{\dag})^2}{\alpha} \\ 
-      &= -\frac{1}{4}\mel**{\alpha}{\hat{a}^2}{\alpha} + \frac{1}{4}\mel**{\alpha}{\hat{a}\hat{a}^{\dag}}{\alpha} + \frac{1}{4}\mel**{\alpha}{\hat{a}^{\dag}\hat{a}}{\alpha} - \frac{1}{4}\mel**{\alpha}{\qty(\hat{a}^{\dag})^2}{\alpha} \\ 
-      &= -\frac{1}{4}\alpha^2 + \frac{1}{4}\mel**{\alpha}{\qty(\hat{a}^{\dag}\hat{a} + 1)}{\alpha} + \frac{1}{4}\abs{\alpha}^2 - \frac{1}{4}\qty(\abs{\alpha}^{*})^2 \\ 
-      &= -\frac{1}{4}\qty(\alpha^2 + \alpha^*)^2 + \frac{1}{4}
+      &= -\frac{1}{4}\mel**{\alpha}{\hat{a}^2}{\alpha} + \frac{1}{4}\mel**{\alpha}{\hat{a}\hat{a}^{\dag}}{\alpha} + \frac{1}{4}\mel**{\alpha}{\hat{a}^{\dag}\hat{a}}{\alpha} - \frac{1}{4}\mel**{\alpha}{\hat{a}^{\dag 2}}{\alpha} \\ 
+      &= -\frac{1}{4}\alpha^2 + \frac{1}{4}\mel**{\alpha}{\qty(\hat{a}^{\dag}\hat{a} + 1)}{\alpha} + \frac{1}{4}\abs{\alpha}^2 - \frac{1}{4}\alpha^{* 2} \\ 
+      &= -\frac{1}{4}\alpha^2 + \frac{1}{4}\abs{\alpha}^2 + \frac{1}{4} +\frac{1}{4}\abs{\alpha}^2 - \frac{1}{4}\alpha^{* 2} \\ 
+      &= -\frac{1}{4}\qty(\alpha + \alpha^*)^2 + \frac{1}{4}
     \end{align}
     より，
     \begin{align}
